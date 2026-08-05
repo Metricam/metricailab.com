@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applied AI · Metric AI Lab</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="description" content="Applied AI services: building AI products on frontier models, custom model training and fine-tuning, and AI strategy. 100+ production projects delivered. Official OpenAI partner with Forward Deployed Engineers.">
+    <link rel="canonical" href="https://metricailab.com/applied-ai">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
         html { scroll-behavior:smooth; }
@@ -28,7 +35,7 @@
         .nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,245,240,.96); backdrop-filter:blur(12px); border-bottom:1px solid #e5e7eb; }
         .nav-inner { max-width:1280px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
         .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
-        .logo-icon { width:36px; height:36px; background:#003049; border-radius:12px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; color:#fff; flex-shrink:0; }
+        .logo-icon { width:36px; height:36px; display:block; flex-shrink:0; }
         .logo-text { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; letter-spacing:-.02em; }
         .nav-links { display:flex; align-items:center; gap:32px; }
         .nav-links a { font-size:14px; font-weight:500; color:#374151; text-decoration:none; transition:color .2s; }
@@ -87,15 +94,6 @@
         .blist-red li { color:rgba(255,255,255,.8); }
         .blist-red li::before { content:''; width:8px; height:8px; background:#fff; border-radius:50%; flex-shrink:0; margin-top:4px; }
 
-        /* Era timeline */
-        .era-wrap { position:relative; padding-left:64px; }
-        .era-line { position:absolute; left:20px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,#003049,#e63946); }
-        .era-block { position:relative; padding-bottom:48px; }
-        .era-block:last-child { padding-bottom:0; }
-        .era-dot { position:absolute; left:-52px; top:2px; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; color:#fff; flex-shrink:0; }
-        .dot-navy { background:#003049; }
-        .dot-red { background:#e63946; }
-
         /* Capability chips */
         .chip-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px; }
         .chip { display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f8f5f0; border-radius:14px; font-size:13px; color:#374151; }
@@ -109,6 +107,11 @@
         .how-grid { display:flex; flex-direction:column; gap:16px; }
         .how-item { display:flex; align-items:flex-start; gap:16px; background:#f8f5f0; border-radius:18px; padding:22px; }
         .how-icon { width:40px; height:40px; background:#003049; color:#fff; border-radius:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; }
+
+        /* Services grid */
+        .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        .svc-card .chip-grid { grid-template-columns:1fr; }
+        .svc-kicker { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:#e63946; margin-bottom:10px; }
 
         /* Two col */
         .two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
@@ -143,6 +146,7 @@
             .stat-cell:nth-child(odd) { border-right:1px solid rgba(255,255,255,.1); }
             .stat-cell:nth-last-child(-n+2) { border-bottom:none; }
             .focus-grid { grid-template-columns:1fr; }
+            .svc-grid { grid-template-columns:1fr; }
             .two-col { grid-template-columns:1fr; gap:44px; }
             .chip-grid { grid-template-columns:1fr; }
             .footer-links { grid-template-columns:repeat(3,1fr); }
@@ -151,8 +155,6 @@
             .section { padding:56px 0; }
             .page-hero { padding:96px 0 48px; }
             .card { padding:24px 20px; }
-            .era-wrap { padding-left:48px; }
-            .era-dot { left:-36px; width:28px; height:28px; font-size:11px; }
             .footer-inner { flex-direction:column; }
             .footer-links { grid-template-columns:1fr 1fr; gap:24px; }
         }
@@ -162,24 +164,24 @@
 
 <nav class="nav">
     <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-            <div class="logo-icon">M</div>
+        <a href="/" class="nav-logo">
+            <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
             <span class="logo-text">Metric AI Lab</span>
         </a>
         <div class="nav-links">
-            <a href="research.html">Research</a>
-            <a href="applied-ai.html" class="active">Applied AI</a>
-            <a href="portfolio.html">Portfolio</a>
+            <a href="/applied-ai" class="active">Applied AI</a>
+            <a href="/research">Research</a>
+            <a href="/portfolio">Portfolio</a>
         </div>
-        <a href="index.html#contact" class="nav-cta">Get In Touch</a>
+        <a href="/#contact" class="nav-cta">Get In Touch</a>
         <button class="hamburger" id="hamburger">☰</button>
     </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-    <a href="research.html" onclick="closeMobile()">Research</a>
-    <a href="applied-ai.html" onclick="closeMobile()">Applied AI</a>
-    <a href="portfolio.html" onclick="closeMobile()">Portfolio</a>
-    <a href="index.html#contact" class="mobile-cta" onclick="closeMobile()">Get In Touch</a>
+    <a href="/applied-ai" onclick="closeMobile()">Applied AI</a>
+    <a href="/research" onclick="closeMobile()">Research</a>
+    <a href="/portfolio" onclick="closeMobile()">Portfolio</a>
+    <a href="/#contact" class="mobile-cta" onclick="closeMobile()">Get In Touch</a>
 </div>
 
 <!-- HERO -->
@@ -260,88 +262,67 @@
     </div>
 </section>
 
-<!-- ERA TIMELINE -->
+<!-- SERVICES: BUILD / TRAIN / ADVISE -->
 <section class="section border-b">
     <div class="container">
         <div style="text-align:center;margin-bottom:60px">
-            <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:10px">Our track record</div>
-            <h2 class="hf sec-h" style="margin-bottom:14px">Eight years of hard problems.</h2>
-            <p style="color:#6b7280;font-size:16px;max-width:480px;margin:0 auto;line-height:1.6">We've grown with every wave of AI — and stayed technical throughout.</p>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:10px">What you can hire us for</div>
+            <h2 class="hf sec-h" style="margin-bottom:14px">The full applied AI stack.</h2>
+            <p style="color:#6b7280;font-size:16px;max-width:520px;margin:0 auto;line-height:1.6">Three ways to engage. Every engagement is staffed by engineers who train models and publish research — not just call APIs.</p>
         </div>
-        <div class="era-wrap">
-            <div class="era-line"></div>
 
-            <!-- Era 1 -->
-            <div class="era-block">
-                <div class="era-dot dot-navy">1</div>
-                <div class="card card-white">
-                    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:14px">Pre-GenAI Era · 2016–2022</div>
-                    <h3 class="hf" style="font-size:26px;font-weight:600;margin-bottom:12px">Traditional ML, Computer Vision &amp; Analytics</h3>
-                    <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:0">Custom model training was our default. Everything required ground-up solutions: designing architectures, collecting data, training, validating. Good foundations.</p>
-                    <div class="chip-grid">
-                        <div class="chip"><i class="fa-solid fa-table-columns"></i> Tabular ML — churn, lead scoring, forecasting</div>
-                        <div class="chip"><i class="fa-solid fa-chart-bar"></i> Data warehousing, analytics, BI dashboards</div>
-                        <div class="chip"><i class="fa-solid fa-microscope"></i> Computer vision — digital pathology, utility inspection</div>
-                        <div class="chip"><i class="fa-solid fa-flask"></i> Biostatistics and clinical data analysis</div>
-                        <div class="chip"><i class="fa-solid fa-comment"></i> NLP — classification, summarization, sentiment</div>
-                    </div>
+        <div class="svc-grid" style="margin-bottom:28px">
+            <div class="card card-white svc-card" style="border:2px solid #003049">
+                <div class="svc-kicker">Build</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;margin-bottom:12px">AI Product Development</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:4px">AI products and agents on frontier APIs — OpenAI, Anthropic Claude, Gemini — or on-prem open models like Qwen and Llama when data can't leave your infrastructure.</p>
+                <div class="chip-grid">
+                    <div class="chip"><i class="fa-solid fa-share-nodes"></i> AI agents, chatbots &amp; copilots</div>
+                    <div class="chip"><i class="fa-solid fa-magnifying-glass"></i> RAG &amp; enterprise semantic search</div>
+                    <div class="chip"><i class="fa-solid fa-file-lines"></i> Document AI &amp; intelligent document processing</div>
+                    <div class="chip"><i class="fa-solid fa-database"></i> Text-to-SQL &amp; analytics copilots</div>
+                    <div class="chip"><i class="fa-solid fa-microphone"></i> Voice AI agents — inbound &amp; outbound</div>
+                    <div class="chip"><i class="fa-solid fa-server"></i> LLMOps, evals &amp; on-prem deployment</div>
                 </div>
             </div>
-
-            <!-- Era 2 -->
-            <div class="era-block">
-                <div class="era-dot dot-navy">2</div>
-                <div class="card card-white">
-                    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:14px">GenAI Era · 2022–2024</div>
-                    <h3 class="hf" style="font-size:26px;font-weight:600;margin-bottom:12px">GenAI, Semantic Search &amp; Multimodal RAG</h3>
-                    <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:0">We moved with the field but stayed architectural. Our GenAI work was rarely simple RAG — we built complex multimodal pipelines where accuracy demanded it. On-prem OSS models alongside cloud APIs.</p>
-                    <div class="chip-grid">
-                        <div class="chip"><i class="fa-solid fa-magnifying-glass"></i> Semantic search and enterprise knowledge bases</div>
-                        <div class="chip"><i class="fa-solid fa-scale-balanced"></i> Legal AI assistants with long-context reasoning</div>
-                        <div class="chip"><i class="fa-solid fa-database"></i> Text-to-SQL — AskAI over relational databases</div>
-                        <div class="chip"><i class="fa-solid fa-file-image"></i> Visual document information extraction</div>
-                        <div class="chip"><i class="fa-solid fa-person-chalkboard"></i> AI executive coaching and performance tools</div>
-                        <div class="chip"><i class="fa-solid fa-sliders"></i> Fine-tuning for domain-specific performance</div>
-                    </div>
+            <div class="card card-white svc-card" style="border:2px solid #003049">
+                <div class="svc-kicker">Train</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;margin-bottom:12px">Custom Model Training &amp; Fine-Tuning</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:4px">Where APIs fall short, we train. Classical ML, computer vision, and fine-tuned LLMs, VLMs, and embedding models for niche domains, languages, and latency budgets.</p>
+                <div class="chip-grid">
+                    <div class="chip"><i class="fa-solid fa-sliders"></i> LLM &amp; VLM fine-tuning</div>
+                    <div class="chip"><i class="fa-solid fa-language"></i> Embedding models for niche domains &amp; languages</div>
+                    <div class="chip"><i class="fa-solid fa-camera"></i> Computer vision &amp; video analytics</div>
+                    <div class="chip"><i class="fa-solid fa-chart-line"></i> Forecasting &amp; predictive ML on tabular data</div>
+                    <div class="chip"><i class="fa-solid fa-compress"></i> Distillation — smaller, faster, cheaper models</div>
+                    <div class="chip"><i class="fa-solid fa-layer-group"></i> Pretraining for specialized domains</div>
                 </div>
             </div>
-
-            <!-- Era 3 -->
-            <div class="era-block">
-                <div class="era-dot dot-red">3</div>
-                <div class="card card-white" style="border:2px solid #003049">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-                        <span style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af">Voice AI Era · 2024–Present</span>
-                        <span class="pill pill-navy" style="font-size:11px;padding:4px 12px">Active</span>
-                    </div>
-                    <h3 class="hf" style="font-size:26px;font-weight:600;margin-bottom:12px">Voice AI — Full Pipeline Ownership</h3>
-                    <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:0">Most of our current client work is Voice AI. We build the whole system — ASR, LLM, TTS, RAG, orchestration — not just plug in APIs. We fine-tune for each client's use case to get smaller, faster, cheaper models that outperform generic large models.</p>
-                    <div class="chip-grid">
-                        <div class="chip"><i class="fa-solid fa-headset" style="color:#e63946"></i> Inbound customer support agents</div>
-                        <div class="chip"><i class="fa-solid fa-phone-volume" style="color:#e63946"></i> Outbound sales and follow-up automation</div>
-                        <div class="chip"><i class="fa-solid fa-shield-halved" style="color:#e63946"></i> Fraud detection and compliance monitoring</div>
-                        <div class="chip"><i class="fa-solid fa-earth-americas" style="color:#e63946"></i> 20+ languages, on-prem deployments</div>
-                    </div>
+            <div class="card card-white svc-card" style="border:2px solid #003049">
+                <div class="svc-kicker">Advise</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;margin-bottom:12px">AI Strategy &amp; Discovery</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:4px">Not sure where AI pays off? We run discovery on your data and workflows, rank use cases by ROI and feasibility, and hand you a roadmap — then build it if you want us to.</p>
+                <div class="chip-grid">
+                    <div class="chip"><i class="fa-solid fa-clipboard-check"></i> AI readiness &amp; data audits</div>
+                    <div class="chip"><i class="fa-solid fa-lightbulb"></i> Use-case discovery &amp; prioritization</div>
+                    <div class="chip"><i class="fa-solid fa-map"></i> AI roadmaps &amp; architecture design</div>
+                    <div class="chip"><i class="fa-solid fa-flask"></i> Proof-of-concepts &amp; pilots</div>
+                    <div class="chip"><i class="fa-solid fa-scale-balanced"></i> Build-vs-buy &amp; vendor selection</div>
+                    <div class="chip"><i class="fa-solid fa-graduation-cap"></i> Team enablement &amp; training</div>
                 </div>
             </div>
+        </div>
 
-            <!-- Era 4 -->
-            <div class="era-block">
-                <div class="era-dot dot-red">4</div>
-                <div class="card card-red">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap">
-                        <span style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.55)">Physical AI Era · 2024–Present</span>
-                        <span class="pill" style="background:rgba(255,255,255,.2);color:#fff;font-size:11px;padding:4px 12px">Growing</span>
-                    </div>
-                    <h3 class="hf" style="font-size:26px;font-weight:600;margin-bottom:12px;color:#fff">Physical AI — Industrial &amp; Real-World Vision</h3>
-                    <p style="color:rgba(255,255,255,.8);font-size:15px;line-height:1.65;margin-bottom:0">We're getting increasing traction in Physical AI. Industrial anomaly detection, factory monitoring, traffic intelligence — systems that understand and act on real-world visual data. This is where our research and applied work converge.</p>
-                    <div class="chip-grid">
-                        <div class="chip chip-red-bg"><i class="fa-solid fa-triangle-exclamation"></i> Industrial anomaly and defect detection</div>
-                        <div class="chip chip-red-bg"><i class="fa-solid fa-industry"></i> Factory monitoring and alert systems</div>
-                        <div class="chip chip-red-bg"><i class="fa-solid fa-car-on"></i> Traffic monitoring and violation detection</div>
-                        <div class="chip chip-red-bg"><i class="fa-solid fa-eye"></i> Medical imaging and digital pathology</div>
-                    </div>
-                </div>
+        <!-- FDE + OpenAI partner band -->
+        <div class="card card-navy" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+            <div style="max-width:640px">
+                <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#e63946;margin-bottom:10px">How we deliver</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;color:#fff;margin-bottom:10px">Forward Deployed Engineers.</h3>
+                <p style="color:#d1d5db;font-size:15px;line-height:1.65">Our FDEs embed directly with your team — on-site or remote, from discovery through production. You get shipped systems and transferred knowledge, not slide decks.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;flex-shrink:0">
+                <span class="pill" style="background:#fff;color:#003049;font-weight:600;font-size:14px;padding:10px 22px"><i class="fa-solid fa-circle-check" style="margin-right:8px;color:#10b981"></i>Official OpenAI Partner</span>
+                <span class="pill" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:13px;padding:10px 22px;text-align:center">On-prem &amp; VPC deployments</span>
             </div>
         </div>
     </div>
@@ -385,7 +366,7 @@
         <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#e63946;margin-bottom:16px">Work with us</div>
         <h2 class="hf" style="font-size:clamp(32px,5vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin-bottom:20px">Bring us the problem that's been too hard.</h2>
         <p style="color:#d1d5db;font-size:17px;margin-bottom:44px">We work best with teams who have a real problem, not just an interest in AI.</p>
-        <a href="index.html#contact" class="btn-primary" style="display:inline-flex;font-size:17px;padding:18px 40px">Start a conversation →</a>
+        <a href="/#contact" class="btn-primary" style="display:inline-flex;font-size:17px;padding:18px 40px">Start a conversation →</a>
     </div>
 </section>
 
@@ -394,14 +375,14 @@
     <div class="container">
         <div class="footer-inner">
             <div>
-                <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px">
-                    <div class="logo-icon">M</div>
+                <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px">
+                    <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
                     <span class="logo-text">Metric AI Lab</span>
                 </a>
-                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab<br>Yerevan, Armenia</p>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
             </div>
             <div class="footer-links">
-                <div class="fcol"><div class="fcol-title">Lab</div><a href="research.html">Research</a><a href="applied-ai.html">Applied AI</a><a href="portfolio.html">Portfolio</a></div>
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="/applied-ai">Applied AI</a><a href="/research">Research</a><a href="/portfolio">Portfolio</a></div>
                 <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metric.am">info@metric.am</a></div>
                 <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank">LinkedIn</a></div>
             </div>

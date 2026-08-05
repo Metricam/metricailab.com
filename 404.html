@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 · Metric AI Lab</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
         html, body { height:100%; }
@@ -30,7 +35,7 @@
         /* Nav */
         .nav { background:rgba(248,245,240,.96); backdrop-filter:blur(12px); border-bottom:1px solid #e5e7eb; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
         .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
-        .logo-icon { width:36px; height:36px; background:#003049; border-radius:12px; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; color:#fff; }
+        .logo-icon { width:36px; height:36px; display:block; flex-shrink:0; }
         .logo-text { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; letter-spacing:-.02em; }
         .nav-cta { padding:10px 22px; background:#003049; color:#fff; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none; transition:background .2s; }
         .nav-cta:hover { background:#e63946; }
@@ -150,11 +155,11 @@
 
 <!-- Nav -->
 <nav class="nav">
-    <a href="index.html" class="nav-logo">
-        <div class="logo-icon">M</div>
+    <a href="/" class="nav-logo">
+        <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
         <span class="logo-text">Metric AI Lab</span>
     </a>
-    <a href="index.html#contact" class="nav-cta">Get In Touch</a>
+    <a href="/#contact" class="nav-cta">Get In Touch</a>
 </nav>
 
 <!-- Main -->
@@ -178,7 +183,7 @@
         </div>
 
         <div class="btn-row">
-            <a href="index.html" class="btn-primary"><i class="fa-solid fa-house"></i> Back to home</a>
+            <a href="/" class="btn-primary"><i class="fa-solid fa-house"></i> Back to home</a>
             <button class="btn-outline" onclick="newDiagnosis()"><i class="fa-solid fa-rotate"></i> Re-run diagnosis</button>
         </div>
 
@@ -191,11 +196,11 @@
 
 <!-- Footer strip -->
 <div class="footer-strip">
-    <span>© 2026 Metric AI Lab · Yerevan, Armenia</span>
+    <span>© 2026 Metric AI Lab</span>
     <div style="display:flex;gap:20px">
-        <a href="research.html">Research</a>
-        <a href="applied-ai.html">Applied AI</a>
-        <a href="portfolio.html">Portfolio</a>
+        <a href="/applied-ai">Applied AI</a>
+        <a href="/research">Research</a>
+        <a href="/portfolio">Portfolio</a>
         <a href="mailto:info@metric.am">info@metric.am</a>
     </div>
 </div>
