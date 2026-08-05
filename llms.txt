@@ -1,0 +1,29 @@
+# Metric AI Lab
+
+> Metric AI Lab is an applied AI research lab. We build production AI systems — AI products on frontier models (OpenAI, Anthropic Claude, Gemini) and on-prem open models (Qwen, Llama), custom-trained and fine-tuned models (LLMs, VLMs, embeddings, computer vision, tabular ML) — and publish frontier AI research. Official OpenAI partner. Engagements are delivered by Forward Deployed Engineers (FDEs) who embed with client teams from discovery through production.
+
+Key facts:
+- 100+ AI projects delivered for Fortune 500 enterprises and growth-stage startups over 8+ years
+- Official OpenAI partner; also build with Anthropic Claude, Gemini, and open-weight models for on-prem/VPC deployment
+- Research published at NeurIPS (under review) and EACL 2026; models open-sourced on Hugging Face (https://huggingface.co/Metric-AI)
+- Ranked #1 globally on the ViDoRe visual document retrieval benchmark (ColQwen embedding series) and #1 on ArmBench
+- Current research: Physical AI — JEPA-based world models, robotic failure detection (FailBench, FailDetect), and Physical AI benchmark meta-analysis (MetaBench Physical)
+
+## Services
+
+- [Applied AI](https://metricailab.com/applied-ai): AI product development (agents, chatbots, RAG, document AI / intelligent document processing, text-to-SQL, voice AI), custom model training and fine-tuning (LLMs, VLMs, embeddings, computer vision, forecasting, distillation), and AI strategy & discovery (audits, use-case prioritization, PoCs).
+
+## Research
+
+- [Research](https://metricailab.com/research): Physical AI (JEPA world models, intuitive physics, robotic failure detection, benchmark science), low-resource language AI (Armenian text embeddings ATE-1/ATE-2, ArmBench benchmarks, EACL 2026 publication), and Document AI (ColQwen visual document retrieval, #1 on ViDoRe).
+
+## Work
+
+- [Portfolio](https://metricailab.com/portfolio): Selected projects — real-time multilingual voice agents for banking and telecom, industrial defect detection, traffic intelligence, legal AI assistants, text-to-SQL analytics, digital pathology, churn prediction, demand forecasting.
+
+## Contact
+
+- Email: info@metric.am
+- Website: https://metricailab.com
+- Hugging Face: https://huggingface.co/Metric-AI
+- LinkedIn: https://am.linkedin.com/company/metric-ai-lab
