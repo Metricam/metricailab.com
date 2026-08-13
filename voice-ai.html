@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice AI Development · Multilingual, Agentic, On-Prem · Metric AI Lab</title>
+    <meta name="description" content="Voice AI that runs 100,000+ production calls a day: full-pipeline agentic voice agents (ASR, LLM, TTS, RAG, tools) in 20+ languages, deployed on-prem. Outbound retention, inbound support & scheduling, low-resource languages.">
+    <link rel="canonical" href="https://metricailab.com/voice-ai">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Metric AI Lab">
+    <meta property="og:title" content="Voice AI Development · Multilingual, Agentic, On-Prem · Metric AI Lab">
+    <meta property="og:description" content="Voice AI that runs 100,000+ production calls a day: full-pipeline agentic voice agents (ASR, LLM, TTS, RAG, tools) in 20+ languages, deployed on-prem. Outbound retention, inbound support & scheduling, low-resource languages.">
+    <meta property="og:url" content="https://metricailab.com/voice-ai">
+    <meta property="og:image" content="https://metricailab.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Voice AI Development · Multilingual, Agentic, On-Prem · Metric AI Lab">
+    <meta name="twitter:description" content="Voice AI that runs 100,000+ production calls a day: full-pipeline agentic voice agents (ASR, LLM, TTS, RAG, tools) in 20+ languages, deployed on-prem. Outbound retention, inbound support & scheduling, low-resource languages.">
+    <meta name="twitter:image" content="https://metricailab.com/og-image.png">
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "Service", "serviceType": "Voice AI development and deployment", "url": "https://metricailab.com/voice-ai", "areaServed": "Worldwide", "provider": {"@type": "Organization", "name": "Metric AI Lab", "url": "https://metricailab.com"}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Voice AI services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Outbound Voice Agents at Scale", "description": "Agentic outbound voice AI for win-back, re-engagement, and campaigns: multi-agent orchestration, memory, live knowledge, post-call analytics. 100,000+ calls per day in production."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Inbound Support & Scheduling Agents", "description": "Inbound voice agents with real tool use: identity verification, RAG troubleshooting, technician scheduling and dispatch, human escalation. MCP-native."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Voice AI for Low-Resource Languages", "description": "Custom-trained ASR, TTS, LLM, and embedding models for low-resource languages, deployed fully on-premise. Text-to-SQL and RAG for account-level answers."}}]}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',system-ui,sans-serif; background:#f8f5f0; color:#111827; overflow-x:hidden; }
+        .hf { font-family:'Space Grotesk',sans-serif; }
+
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .section { padding:80px 0; }
+        .border-b { border-bottom:1px solid #e5e7eb; }
+        .bg-white { background:#fff; }
+
+        .grid-bg {
+            background-color:#f8f5f0;
+            background-image:linear-gradient(to right,#e0e5ed 1px,transparent 1px),linear-gradient(to bottom,#e0e5ed 1px,transparent 1px);
+            background-size:40px 40px;
+        }
+
+        /* Nav */
+        .nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,245,240,.96); backdrop-filter:blur(12px); border-bottom:1px solid #e5e7eb; }
+        .nav-inner { max-width:1280px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+        .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+        .logo-icon { width:36px; height:36px; display:block; flex-shrink:0; }
+        .logo-text { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; letter-spacing:-.02em; }
+        .nav-links { display:flex; align-items:center; gap:32px; }
+        .nav-links a { font-size:14px; font-weight:500; color:#374151; text-decoration:none; transition:color .2s; }
+        .nav-links a:hover,.nav-links a.active { color:#e63946; }
+        .nav-cta { padding:10px 22px; background:#003049; color:#fff; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none; transition:background .2s; white-space:nowrap; }
+        .nav-cta:hover { background:#e63946; }
+        .hamburger { display:none; font-size:24px; background:none; border:none; cursor:pointer; padding:8px; line-height:1; }
+
+        .mobile-menu { display:none; position:fixed; inset:0; background:#f8f5f0; z-index:90; padding:88px 24px 40px; flex-direction:column; }
+        .mobile-menu.open { display:flex; }
+        .mobile-menu a { display:block; padding:16px 0; font-size:20px; font-weight:500; color:#111827; text-decoration:none; border-bottom:1px solid #e5e7eb; }
+        .mobile-menu a:hover { color:#e63946; }
+        .mobile-cta { margin-top:24px !important; padding:18px !important; background:#003049; color:#fff !important; border-radius:999px; text-align:center; font-weight:600 !important; border:none; }
+        .mobile-cta:hover { background:#e63946 !important; color:#fff !important; }
+
+        /* Hero */
+        .page-hero { padding:112px 0 64px; }
+        .hero-badge { display:inline-flex; align-items:center; gap:8px; background:#fff; padding:8px 20px; border-radius:999px; border:1px solid #e5e7eb; margin-bottom:28px; font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; }
+        .hero-badge i { color:#e63946; font-size:12px; }
+
+        /* Pill tags */
+        .pill { display:inline-block; padding:6px 16px; border-radius:999px; font-size:13px; font-weight:500; margin:0 6px 6px 0; }
+        .pill-navy { background:#003049; color:#fff; }
+        .pill-red { background:#e63946; color:#fff; }
+        .pill-outline-navy { border:2px solid #003049; color:#003049; background:transparent; }
+        .pill-outline { border:1px solid #d1d5db; color:#6b7280; background:#f8f5f0; }
+        .pill-muted { background:#f3f4f6; color:#6b7280; }
+
+        /* Section heading */
+        .sec-h { font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,4.5vw,52px); font-weight:600; letter-spacing:-.03em; line-height:1.05; }
+
+        /* Stats bar (dark) */
+        .stats-bar { background:#003049; color:#fff; padding:48px 0; }
+        .stats-inner { display:grid; grid-template-columns:repeat(4,1fr); }
+        .stat-cell { text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,.15); }
+        .stat-cell:last-child { border-right:none; }
+        .stat-num { font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,4vw,44px); font-weight:700; }
+        .stat-lbl { margin-top:6px; color:rgba(255,255,255,.6); font-size:14px; }
+
+        /* Cards */
+        .card { border-radius:24px; padding:36px; transition:transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s; }
+        .card:hover { transform:translateY(-3px); box-shadow:0 20px 40px -12px rgba(0,0,0,.12); }
+        .card-white { background:#fff; border:1px solid #e5e7eb; }
+        .card-navy { background:#003049; color:#fff; }
+        .card-red { background:#e63946; color:#fff; }
+        .card-cream { background:#f8f5f0; border:1px solid #e5e7eb; }
+
+        /* Focus grid */
+        .focus-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+
+        /* Bullet list */
+        .blist { list-style:none; display:flex; flex-direction:column; gap:10px; }
+        .blist li { display:flex; align-items:flex-start; gap:10px; font-size:14px; line-height:1.5; }
+        .blist-dark li { color:#d1d5db; }
+        .blist-dark li::before { content:''; width:8px; height:8px; background:#e63946; border-radius:50%; flex-shrink:0; margin-top:4px; }
+        .blist-red li { color:rgba(255,255,255,.8); }
+        .blist-red li::before { content:''; width:8px; height:8px; background:#fff; border-radius:50%; flex-shrink:0; margin-top:4px; }
+
+        /* Capability chips */
+        .chip-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px; }
+        .chip { display:flex; align-items:center; gap:10px; padding:12px 16px; background:#f8f5f0; border-radius:14px; font-size:13px; color:#374151; }
+        .chip-dark { background:rgba(255,255,255,.1); color:#d1d5db; }
+        .chip-red-bg { background:rgba(255,255,255,.15); color:rgba(255,255,255,.9); }
+        .chip i { font-size:14px; color:#003049; flex-shrink:0; }
+        .chip-dark i { color:#fff; }
+        .chip-red-bg i { color:#fff; }
+
+        /* How we work */
+        .how-grid { display:flex; flex-direction:column; gap:16px; }
+        .how-item { display:flex; align-items:flex-start; gap:16px; background:#f8f5f0; border-radius:18px; padding:22px; }
+        .how-icon { width:40px; height:40px; background:#003049; color:#fff; border-radius:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; }
+
+        /* Services grid */
+        .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+        .svc-card .chip-grid { grid-template-columns:1fr; }
+        .svc-kicker { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:#e63946; margin-bottom:10px; }
+
+        /* Two col */
+        .two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+
+        /* Inline link */
+        .ilink { font-weight:600; color:#003049; text-decoration:none; border-bottom:2px solid #003049; padding-bottom:2px; transition:color .2s,border-color .2s; }
+        .ilink:hover { color:#e63946; border-color:#e63946; }
+
+        /* Buttons */
+        .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; background:#e63946; color:#fff; border-radius:999px; font-weight:600; font-size:16px; text-decoration:none; transition:background .2s; }
+        .btn-primary:hover { background:#d32f2f; }
+
+        /* Footer */
+        .footer-inner { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:40px; }
+        .footer-links { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; font-size:14px; }
+        .fcol-title { font-weight:600; margin-bottom:12px; }
+        .fcol a { display:block; color:#6b7280; text-decoration:none; margin-bottom:8px; transition:color .2s; }
+        .fcol a:hover { color:#003049; }
+
+        /* Animations */
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .fu  { animation:fadeUp .7s .00s ease both; }
+        .fu2 { animation:fadeUp .7s .15s ease both; }
+        .fu3 { animation:fadeUp .7s .30s ease both; }
+
+        /* Responsive */
+        @media(max-width:960px) {
+            .nav-links,.nav-cta { display:none; }
+            .hamburger { display:block; }
+            .stats-inner { grid-template-columns:1fr 1fr; row-gap:28px; }
+            .stat-cell { border-right:none; border-bottom:1px solid rgba(255,255,255,.1); padding-bottom:20px; }
+            .stat-cell:nth-child(odd) { border-right:1px solid rgba(255,255,255,.1); }
+            .stat-cell:nth-last-child(-n+2) { border-bottom:none; }
+            .focus-grid { grid-template-columns:1fr; }
+            .svc-grid { grid-template-columns:1fr; }
+            .two-col { grid-template-columns:1fr; gap:44px; }
+            .chip-grid { grid-template-columns:1fr; }
+            .footer-links { grid-template-columns:repeat(3,1fr); }
+        }
+        @media(max-width:600px) {
+            .section { padding:56px 0; }
+            .page-hero { padding:96px 0 48px; }
+            .card { padding:24px 20px; }
+            .footer-inner { flex-direction:column; }
+            .footer-links { grid-template-columns:1fr 1fr; gap:24px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">
+            <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
+            <span class="logo-text">Metric AI Lab</span>
+        </a>
+        <div class="nav-links">
+            <a href="/applied-ai">Applied AI</a>
+            <a href="/research">Research</a>
+            <a href="/portfolio">Portfolio</a>
+        </div>
+        <a href="/#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger">☰</button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/applied-ai" onclick="closeMobile()">Applied AI</a>
+    <a href="/research" onclick="closeMobile()">Research</a>
+    <a href="/portfolio" onclick="closeMobile()">Portfolio</a>
+    <a href="/#contact" class="mobile-cta" onclick="closeMobile()">Get In Touch</a>
+</div>
+
+<!-- HERO -->
+<header class="page-hero grid-bg border-b">
+    <div class="container">
+        <div class="hero-badge fu"><i class="fa-solid fa-microphone"></i> Voice AI</div>
+        <h1 class="hf fu2" style="font-size:clamp(40px,6vw,72px);font-weight:600;letter-spacing:-.03em;line-height:1.02;margin-bottom:24px;max-width:880px">Voice AI that carries<br>the whole call.</h1>
+        <p class="fu3" style="font-size:clamp(16px,1.8vw,19px);color:#6b7280;max-width:640px;line-height:1.65;margin-bottom:32px">Not a demo — 100,000+ production calls a day. We build the entire pipeline: ASR, LLM, TTS, RAG, memory, and real tool use — in 20+ languages, on your infrastructure.</p>
+        <div class="fu3">
+            <span class="pill pill-red">Outbound at Scale</span>
+            <span class="pill pill-outline-navy">Inbound Support &amp; Scheduling</span>
+            <span class="pill pill-outline">20+ Languages</span>
+            <span class="pill pill-outline">On-Prem by Default</span>
+        </div>
+    </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-cell"><div class="stat-num">100k+</div><div class="stat-lbl">Production calls per day</div></div>
+            <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-lbl">Languages, incl. low-resource</div></div>
+            <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-lbl">AI agents orchestrated per call</div></div>
+            <div class="stat-cell"><div class="stat-num">On-prem</div><div class="stat-lbl">Your calls never leave your infra</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- THREE OFFERS -->
+<section class="section border-b bg-white">
+    <div class="container">
+        <div style="text-align:center;margin-bottom:60px">
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:10px">What we build</div>
+            <h2 class="hf sec-h" style="margin-bottom:14px">Three kinds of calls we automate.</h2>
+            <p style="color:#6b7280;font-size:16px;max-width:540px;margin:0 auto;line-height:1.6">Every deployment is the full stack — speech, language, retrieval, tools, and telephony — fine-tuned for your use case.</p>
+        </div>
+        <div class="svc-grid" style="margin-bottom:28px">
+            <div class="card card-white svc-card" style="border:2px solid #003049">
+                <div class="svc-kicker">Outbound</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;margin-bottom:12px">Win-Back &amp; Re-Engagement at Scale</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:4px">Agentic outbound calls that hold real conversations: they know your product by heart, stay current on news your customers care about, remember past interactions, and follow your policy guardrails.</p>
+                <div class="chip-grid">
+                    <div class="chip"><i class="fa-solid fa-share-nodes"></i> Multi-agent orchestration — 5+ agents per call</div>
+                    <div class="chip"><i class="fa-solid fa-brain"></i> Memory, chit-chat &amp; live product knowledge</div>
+                    <div class="chip"><i class="fa-solid fa-chart-line"></i> Post-call self-reflection that improves every campaign</div>
+                </div>
+            </div>
+            <div class="card card-white svc-card" style="border:2px solid #003049">
+                <div class="svc-kicker">Inbound</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;margin-bottom:12px">Support &amp; Scheduling Agents</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:4px">Agents that finish the job, not just answer the phone: verify the caller, diagnose the problem against your documentation, resolve it — or schedule the right visit with a full summary attached.</p>
+                <div class="chip-grid">
+                    <div class="chip"><i class="fa-solid fa-user-check"></i> Identity verification &amp; account context</div>
+                    <div class="chip"><i class="fa-solid fa-toolbox"></i> Deep tool use &amp; MCP-native integrations</div>
+                    <div class="chip"><i class="fa-solid fa-headset"></i> Scheduling, dispatch &amp; judgment-based escalation</div>
+                </div>
+            </div>
+            <div class="card card-white svc-card" style="border:2px solid #003049">
+                <div class="svc-kicker">Any language</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;margin-bottom:12px">Voice AI in Low-Resource Languages</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:4px">When off-the-shelf speech models don't speak your customers' language, we train our own. Our Armenian ASR, TTS, and embedding models are state of the art — and the method transfers.</p>
+                <div class="chip-grid">
+                    <div class="chip"><i class="fa-solid fa-language"></i> Custom ASR, TTS &amp; LLM training per language</div>
+                    <div class="chip"><i class="fa-solid fa-database"></i> Text-to-SQL for real account answers</div>
+                    <div class="chip"><i class="fa-solid fa-server"></i> Fully on-premise, bank-grade deployments</div>
+                </div>
+            </div>
+        </div>
+        <div class="card card-navy" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+            <div style="max-width:660px">
+                <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#e63946;margin-bottom:10px">Why us</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;color:#fff;margin-bottom:10px">We train the models under the pipeline.</h3>
+                <p style="color:#d1d5db;font-size:15px;line-height:1.65">Most voice vendors wire together third-party APIs and hope for the best on latency, cost, and language coverage. We fine-tune ASR, LLM, and TTS per client — smaller, faster, cheaper models that outperform generic stacks — and we've published the open benchmarks to prove it.</p>
+            </div>
+            <div style="flex-shrink:0">
+                <a href="/research" class="pill" style="background:#fff;color:#003049;font-weight:600;font-size:14px;padding:12px 24px;text-decoration:none">Our research →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTION PROOF -->
+<section class="section border-b">
+    <div class="container">
+        <div class="two-col">
+            <div>
+                <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:14px">In production</div>
+                <h2 class="hf sec-h" style="margin-bottom:24px">Battle-tested, daily.</h2>
+                <p style="color:#6b7280;font-size:17px;line-height:1.65;margin-bottom:16px">A global consumer platform runs 100,000+ of our outbound calls every day in 20+ languages — fully on-premise, fully agentic. Leading US field-service software platforms run our inbound agents that verify callers, troubleshoot with RAG, and dispatch technicians. A top Central Asian bank runs our on-prem voice AI in a low-resource language, answering account questions with text-to-SQL.</p>
+                <p style="color:#6b7280;font-size:17px;line-height:1.65;margin-bottom:24px">Client names available on a call — with their permission, not on a webpage.</p>
+                <a href="/#contact" class="ilink">Ask us about them →</a>
+            </div>
+            <div class="how-grid">
+                <div class="how-item">
+                    <div class="how-icon">1</div>
+                    <div><div style="font-weight:600;margin-bottom:4px">Pilot one call flow</div><div style="color:#6b7280;font-size:14px;line-height:1.55">2–4 weeks on your telephony and your data: one campaign or one inbound flow, measured against your current numbers.</div></div>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">2</div>
+                    <div><div style="font-weight:600;margin-bottom:4px">Scale to production</div><div style="color:#6b7280;font-size:14px;line-height:1.55">Forward Deployed Engineers integrate CRM, scheduling, and knowledge systems. Fine-tuned models bring latency and cost down.</div></div>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">3</div>
+                    <div><div style="font-weight:600;margin-bottom:4px">Own it</div><div style="color:#6b7280;font-size:14px;line-height:1.55">Weights, pipeline, analytics — handed over. On-prem means it runs without us.</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:96px 0;background:#003049;color:#fff">
+    <div style="max-width:640px;margin:0 auto;text-align:center;padding:0 24px">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#e63946;margin-bottom:16px">Start with a pilot</div>
+        <h2 class="hf" style="font-size:clamp(32px,5vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin-bottom:20px">Give us one call flow.</h2>
+        <p style="color:#d1d5db;font-size:17px;margin-bottom:44px">Outbound campaign, inbound queue, or a language nobody else supports — we'll pilot it against your current numbers.</p>
+        <a href="/#contact" class="btn-primary" style="display:inline-flex;font-size:17px;padding:18px 40px">Start a conversation →</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#f8f5f0;border-top:1px solid #e5e7eb;padding:64px 0">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px">
+                    <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
+                    <span class="logo-text">Metric AI Lab</span>
+                </a>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
+            </div>
+            <div class="footer-links">
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="/applied-ai">Applied AI</a><a href="/research">Research</a><a href="/portfolio">Portfolio</a></div>
+                <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metric.am">info@metric.am</a></div>
+                <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank">LinkedIn</a></div>
+            </div>
+            <div style="font-size:12px;color:#9ca3af;align-self:flex-end;white-space:nowrap">© 2026 Metric AI Lab</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('open'));
+    function closeMobile(){document.getElementById('mobile-menu').classList.remove('open');}
+</script>
+</body>
+</html>
