@@ -12,10 +12,12 @@ Key facts:
 ## Services
 
 - [Applied AI](https://metricailab.com/applied-ai): AI product development (agents, chatbots, RAG, document AI / intelligent document processing, text-to-SQL, voice AI), custom model training and fine-tuning (LLMs, VLMs, embeddings, computer vision, forecasting, distillation), and AI strategy & discovery (audits, use-case prioritization, PoCs).
+- [Voice AI](https://metricailab.com/voice-ai): Production-grade voice agents, real-time speech systems, and multilingual conversational AI solutions.
 
 ## Research
 
 - [Research](https://metricailab.com/research): Physical AI (JEPA world models, intuitive physics, robotic failure detection, benchmark science), low-resource language AI (Armenian text embeddings ATE-1/ATE-2, ArmBench benchmarks, EACL 2026 publication), and Document AI (ColQwen visual document retrieval, #1 on ViDoRe).
+- [Physical AI](https://metricailab.com/physical-ai): Frontier research and applications in JEPA-based world models, robotic failure detection (FailBench, FailDetect), and Physical AI benchmark meta-analysis (MetaBench Physical).
 
 ## Work
 
@@ -23,7 +25,7 @@ Key facts:
 
 ## Contact
 
-- Email: info@metric.am
+- Email: info@metricailab.com
 - Website: https://metricailab.com
 - Hugging Face: https://huggingface.co/Metric-AI
 - LinkedIn: https://am.linkedin.com/company/metric-ai-lab
