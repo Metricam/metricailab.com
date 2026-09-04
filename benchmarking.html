@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benchmarks · Metric AI Lab</title>
+<meta name="description" content="Public benchmarks from Metric AI Lab: Physical AI (MetaBench, FailBench) and Armenian AI (ArmBench-LLM, ArmBench-ASR, ArmBench-TextEmbed).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',system-ui,sans-serif; background:#f8f5f0; color:#111827; overflow-x:hidden; }
+    .hf { font-family:'Space Grotesk',sans-serif; }
+    h1, h2, h3 { text-wrap:balance; }
+
+    .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+    .section { padding:80px 0; }
+    .border-b { border-bottom:1px solid #e5e7eb; }
+    .bg-white { background:#fff; }
+
+    .grid-bg {
+        background-color:#f8f5f0;
+        background-image:linear-gradient(to right,#e0e5ed 1px,transparent 1px),linear-gradient(to bottom,#e0e5ed 1px,transparent 1px);
+        background-size:40px 40px;
+    }
+
+    /* Nav */
+    .nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,245,240,.96); backdrop-filter:blur(12px); border-bottom:1px solid #e5e7eb; }
+    .nav-inner { max-width:1280px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+    .logo-icon { width:36px; height:36px; display:block; flex-shrink:0; }
+    .logo-text { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; letter-spacing:-.02em; }
+    .nav-links { display:flex; align-items:center; gap:32px; }
+    .nav-links a { font-size:14px; font-weight:500; color:#374151; text-decoration:none; transition:color .2s; }
+    .nav-links a:hover, .nav-links a.active { color:#e63946; }
+    .nav-cta { padding:10px 22px; background:#003049; color:#fff; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none; transition:background .2s; white-space:nowrap; }
+    .nav-cta:hover { background:#e63946; }
+    .hamburger { display:none; font-size:24px; background:none; border:none; cursor:pointer; padding:8px; line-height:1; }
+
+    .mobile-menu { display:none; position:fixed; inset:0; background:#f8f5f0; z-index:90; padding:88px 24px 40px; flex-direction:column; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { display:block; padding:16px 0; font-size:20px; font-weight:500; color:#111827; text-decoration:none; border-bottom:1px solid #e5e7eb; }
+    .mobile-menu a:hover, .mobile-menu a.active { color:#e63946; }
+    .mobile-cta { margin-top:24px !important; padding:18px !important; background:#003049; color:#fff !important; border-radius:999px; text-align:center; font-weight:600 !important; font-size:18px !important; border:none; }
+    .mobile-cta:hover { background:#e63946 !important; color:#fff !important; }
+
+    /* Hero */
+    .page-hero { padding:112px 0 64px; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:#fff; padding:8px 20px; border-radius:999px; border:1px solid #e5e7eb; margin-bottom:28px; }
+    .hero-badge .dot { width:8px; height:8px; background:#10b981; border-radius:50%; animation:pulse 2s infinite; }
+    .hero-badge span { font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* Labels */
+    .label { font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:#9ca3af; margin-bottom:10px; }
+
+    /* Section heading */
+    .sec-h { font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,4vw,46px); font-weight:600; letter-spacing:-.03em; line-height:1.05; }
+
+    /* Section intro row */
+    .sec-intro { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px; }
+
+    /* Pills */
+    .pill { display:inline-block; padding:6px 16px; border-radius:999px; font-size:13px; font-weight:500; }
+    .pill-navy { background:#003049; color:#fff; }
+    .pill-outline { background:#f8f5f0; border:1px solid #d1d5db; color:#6b7280; }
+    .tpill { display:inline-block; padding:5px 13px; border-radius:999px; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; }
+
+    /* Cards */
+    .card { border-radius:20px; padding:32px; transition:transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s; }
+    .card:hover { transform:translateY(-3px); box-shadow:0 20px 40px -12px rgba(0,0,0,.12); }
+    .card-white { background:#fff; border:1px solid #e5e7eb; }
+    .card-cream { background:#f8f5f0; border:1px solid #e5e7eb; }
+
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .four-col { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+
+    /* Inline link */
+    .ilink { font-weight:600; color:#003049; text-decoration:none; border-bottom:2px solid #003049; padding-bottom:2px; transition:color .2s,border-color .2s; font-size:14px; white-space:nowrap; }
+    .ilink:hover { color:#e63946; border-color:#e63946; }
+
+    /* Buttons */
+    .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; background:#003049; color:#fff; border-radius:999px; font-weight:600; font-size:15px; text-decoration:none; transition:background .2s; }
+    .btn-primary:hover { background:#e63946; }
+    .btn-outline { display:inline-flex; align-items:center; justify-content:center; padding:16px 32px; border:2px solid #003049; color:#003049; border-radius:999px; font-weight:600; font-size:15px; text-decoration:none; transition:all .2s; }
+    .btn-outline:hover { background:#003049; color:#fff; }
+
+    /* Footer */
+    .footer-inner { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:40px; }
+    .footer-links { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; font-size:14px; }
+    .fcol-title { font-weight:600; margin-bottom:12px; }
+    .fcol a { display:block; color:#6b7280; text-decoration:none; margin-bottom:8px; transition:color .2s; }
+    .fcol a:hover { color:#003049; }
+
+    /* Animations */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .fu  { animation:fadeUp .7s .00s ease both; }
+    .fu2 { animation:fadeUp .7s .15s ease both; }
+    .fu3 { animation:fadeUp .7s .30s ease both; }
+    @media (prefers-reduced-motion:reduce) {
+        .fu, .fu2, .fu3, .hero-badge .dot { animation:none; }
+    }
+
+    @media(max-width:960px) {
+        .nav-links, .nav-cta { display:none; }
+        .hamburger { display:block; }
+        .two-col, .three-col { grid-template-columns:1fr; }
+        .four-col { grid-template-columns:1fr 1fr; }
+        .footer-links { grid-template-columns:repeat(3,1fr); }
+    }
+    @media(max-width:600px) {
+        .section { padding:56px 0; }
+        .page-hero { padding:96px 0 48px; }
+        .card { padding:24px 20px; }
+        .four-col { grid-template-columns:1fr; }
+        .footer-inner { flex-direction:column; }
+        .footer-links { grid-template-columns:1fr 1fr; gap:24px; }
+    }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="https://metricailab.com/" class="nav-logo">
+            <svg class="logo-icon" viewBox="0 0 58 58" width="36" height="36" aria-hidden="true"><g fill="#e63946"><rect x="1" width="56" height="15"/><rect x="1" y="21" width="32" height="15"/><rect x="1" y="42" width="56" height="16"/></g></svg>
+            <span class="logo-text">Metric AI Lab</span>
+        </a>
+        <div class="nav-links">
+            <a href="https://metricailab.com/applied-ai">Applied AI</a>
+            <a href="https://metricailab.com/research">Research</a>
+            <a href="https://metricailab.com/portfolio">Portfolio</a>
+            <a href="#" class="active" aria-current="page">Benchmarks</a>
+        </div>
+        <a href="https://metricailab.com/#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="https://metricailab.com/applied-ai" onclick="closeMobile()">Applied AI</a>
+    <a href="https://metricailab.com/research" onclick="closeMobile()">Research</a>
+    <a href="https://metricailab.com/portfolio" onclick="closeMobile()">Portfolio</a>
+    <a href="#" class="active" onclick="closeMobile()">Benchmarks</a>
+    <a href="https://metricailab.com/#contact" class="mobile-cta" onclick="closeMobile()">Get In Touch</a>
+</div>
+
+<!-- HERO -->
+<header class="page-hero grid-bg border-b">
+    <div class="container">
+        <div class="hero-badge fu"><div class="dot"></div><span>Benchmarks · Open Science</span></div>
+        <h1 class="hf fu2" style="font-size:clamp(38px,6vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin-bottom:22px;max-width:760px">Benchmarks we build, and lead.</h1>
+        <p class="fu3" style="font-size:clamp(16px,1.8vw,18px);color:#6b7280;max-width:600px;line-height:1.65">Two research tracks, six public benchmarks — Physical AI benchmarks for robot manipulation, and the first open benchmarks for Armenian and Uzbek.</p>
+    </div>
+</header>
+
+<!-- PHYSICAL AI BENCHMARKS -->
+<section class="section border-b bg-white">
+    <div class="container">
+        <div class="sec-intro">
+            <span class="pill pill-navy">Primary Focus</span>
+            <span class="label" style="margin-bottom:0">Physical AI</span>
+        </div>
+        <h2 class="hf sec-h" style="margin-bottom:16px">Physical AI benchmarks.</h2>
+        <p style="font-size:17px;color:#6b7280;max-width:680px;line-height:1.65;margin-bottom:40px">Robot manipulation is where AI meets the real world — and where benchmarks are thinnest. We're building them: for failure detection, and for comparing Physical AI systems on equal footing.</p>
+
+        <div class="two-col">
+            <div class="card card-white">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px">
+                    <span class="tpill" style="background:#e63946;color:#fff">FailBench · FailDetect</span>
+                    <span style="font-size:12px;color:#9ca3af">arXiv:2609.03611</span>
+                </div>
+                <h3 class="hf" style="font-size:20px;font-weight:600;margin-bottom:10px">Robotic Failure Detection</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:22px">A pooled benchmark for robotic arm failure detection — evaluating specialist models against generalist VLMs — and FailDetect, a model that zooms, crops, and catches failures.</p>
+                <a href="https://arxiv.org/abs/2609.03611" target="_blank" rel="noopener" class="ilink">Read the paper →</a>
+            </div>
+            <div class="card card-white">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px">
+                    <span class="tpill" style="background:#1f2937;color:#fff">MetaBench Physical</span>
+                    <span style="font-size:12px;color:#9ca3af">arXiv:2608.25940</span>
+                </div>
+                <h3 class="hf" style="font-size:20px;font-weight:600;margin-bottom:10px">Physical AI Benchmark Meta-Analysis</h3>
+                <p style="color:#6b7280;font-size:15px;line-height:1.65;margin-bottom:22px">Every vendor reports on different benchmarks. MetaBench Physical builds one comparable matrix, prunes redundant benchmarks to an optimal subset, and ranks models on it.</p>
+                <a href="https://arxiv.org/abs/2608.25940" target="_blank" rel="noopener" class="ilink">Read the paper →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOW-RESOURCE LANGUAGE BENCHMARKS -->
+<section class="section">
+    <div class="container">
+        <div class="sec-intro">
+            <span class="pill pill-outline">Open Science · Pro Bono</span>
+            <span class="label" style="margin-bottom:0">🇦🇲🇺🇿 Armenian, Uzbek &amp; Low-Resource Languages</span>
+        </div>
+        <h2 class="hf sec-h" style="margin-bottom:16px">Low-resource language benchmarks.</h2>
+        <p style="font-size:17px;color:#6b7280;max-width:680px;line-height:1.65;margin-bottom:40px">The first open benchmarks for evaluating language, speech, and retrieval systems in Armenian and Uzbek — built because the infrastructure didn't exist, not because it's a business.</p>
+
+        <div class="four-col">
+            <div class="card card-white">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+                    <span class="tpill" style="background:#003049;color:#fff">Open</span>
+                </div>
+                <h3 class="hf" style="font-size:18px;font-weight:600;margin-bottom:10px">ArmBench-LLM</h3>
+                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:22px">The first open benchmark for evaluating large language model performance in Armenian.</p>
+                <a href="https://metric-ai-armbench-llm.hf.space/" target="_blank" rel="noopener" class="ilink">Visit benchmark →</a>
+            </div>
+            <div class="card card-white">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+                    <span class="tpill" style="background:#003049;color:#fff">Open</span>
+                </div>
+                <h3 class="hf" style="font-size:18px;font-weight:600;margin-bottom:10px">ArmBench-ASR</h3>
+                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:22px">An open benchmark for automatic speech recognition in Armenian.</p>
+                <a href="https://metric-ai-armbench-asr.static.hf.space" target="_blank" rel="noopener" class="ilink">Visit benchmark →</a>
+            </div>
+            <div class="card card-white">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+                    <span class="tpill" style="background:#003049;color:#fff">Open</span>
+                </div>
+                <h3 class="hf" style="font-size:18px;font-weight:600;margin-bottom:10px">ArmBench-TextEmbed</h3>
+                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:14px">The first open benchmark for text embedding performance in Armenian — where our own ATE models hold #1.</p>
+                <a href="https://metric-ai-armbench-textembed.hf.space/" target="_blank" rel="noopener" class="ilink">Visit benchmark →</a>
+            </div>
+            <div class="card card-white">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px">
+                    <span class="tpill" style="background:#e63946;color:#fff">Paper</span>
+                    <span style="font-size:11px;color:#9ca3af">arXiv:2608.29284</span>
+                </div>
+                <h3 class="hf" style="font-size:18px;font-weight:600;margin-bottom:10px">Uzbench</h3>
+                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin-bottom:22px">An open, low-resource benchmark for evaluating AI systems in Uzbek.</p>
+                <a href="https://arxiv.org/abs/2608.29284" target="_blank" rel="noopener" class="ilink">Read the paper →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OPEN SCIENCE LINKS -->
+<section class="section bg-white border-b" style="padding-top:0">
+    <div class="container" style="text-align:center;padding-top:8px">
+        <h2 class="hf" style="font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em;margin-bottom:14px">Everything is open.</h2>
+        <p style="color:#6b7280;font-size:16px;margin-bottom:36px">All our models and benchmarks are public. We believe open science makes everyone better.</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px">
+            <a href="https://huggingface.co/Metric-AI" target="_blank" rel="noopener" class="btn-primary">Metric-AI on Hugging Face →</a>
+            <a href="https://metricailab.com/#contact" class="btn-outline">Get in touch →</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#f8f5f0;padding:64px 0">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <a href="https://metricailab.com/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px">
+                    <svg class="logo-icon" viewBox="0 0 58 58" width="36" height="36" aria-hidden="true"><g fill="#e63946"><rect x="1" width="56" height="15"/><rect x="1" y="21" width="32" height="15"/><rect x="1" y="42" width="56" height="16"/></g></svg>
+                    <span class="logo-text">Metric AI Lab</span>
+                </a>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
+            </div>
+            <div class="footer-links">
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="https://metricailab.com/applied-ai">Applied AI</a><a href="https://metricailab.com/research">Research</a><a href="https://metricailab.com/portfolio">Portfolio</a></div>
+                <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metric.am">info@metric.am</a></div>
+                <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank" rel="noopener">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank" rel="noopener">LinkedIn</a></div>
+            </div>
+            <div style="font-size:12px;color:#9ca3af;align-self:flex-end;white-space:nowrap">© 2026 Metric AI Lab</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('open');
+    });
+    function closeMobile() { document.getElementById('mobile-menu').classList.remove('open'); }
+</script>
+</body>
+</html>
