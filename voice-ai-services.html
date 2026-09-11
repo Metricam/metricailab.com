@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White-Label Voice AI &amp; Call Analytics for BPOs · Metric AI Lab</title>
+    <meta name="description" content="Production voice AI — 100,000+ calls a day, 20+ languages, on-prem — white-labeled for BPOs and answering services who own the client relationship. Plus call analytics: QA, sentiment, and coaching on every call.">
+    <link rel="canonical" href="https://metricailab.com/voice-ai-services">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Metric AI Lab">
+    <meta property="og:title" content="White-Label Voice AI &amp; Call Analytics for BPOs · Metric AI Lab">
+    <meta property="og:description" content="Production voice AI — 100,000+ calls a day, 20+ languages, on-prem — white-labeled for BPOs and answering services who own the client relationship. Plus call analytics on every call.">
+    <meta property="og:url" content="https://metricailab.com/voice-ai-services">
+    <meta property="og:image" content="https://metricailab.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="White-Label Voice AI &amp; Call Analytics for BPOs · Metric AI Lab">
+    <meta name="twitter:description" content="Production voice AI white-labeled for BPOs and answering services, plus call analytics on every call.">
+    <meta name="twitter:image" content="https://metricailab.com/og-image.png">
+    <meta name="robots" content="noindex, follow">
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "Service", "serviceType": "White-label voice AI and call analytics for BPOs", "url": "https://metricailab.com/voice-ai-services", "areaServed": "Worldwide", "provider": {"@type": "Organization", "name": "Metric AI Lab", "url": "https://metricailab.com"}, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "BPO AI services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "White-Label Voice AI", "description": "Production voice AI, 100,000+ calls a day in 20+ languages, white-labeled for partners who own the client relationship."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Call Analytics", "description": "Automated QA, sentiment, and compliance scoring across 100% of calls, human or AI, with client-facing reporting."}}]}}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',system-ui,sans-serif; background:#f8f5f0; color:#111827; overflow-x:hidden; }
+        .hf { font-family:'Space Grotesk',sans-serif; }
+
+        .container { max-width:1280px; margin:0 auto; padding:0 24px; }
+        .section { padding:80px 0; }
+        .border-b { border-bottom:1px solid #e5e7eb; }
+        .bg-white { background:#fff; }
+
+        .grid-bg {
+            background-color:#f8f5f0;
+            background-image:linear-gradient(to right,#e0e5ed 1px,transparent 1px),linear-gradient(to bottom,#e0e5ed 1px,transparent 1px);
+            background-size:40px 40px;
+        }
+
+        /* Nav */
+        .nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(248,245,240,.96); backdrop-filter:blur(12px); border-bottom:1px solid #e5e7eb; }
+        .nav-inner { max-width:1280px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+        .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+        .logo-icon { width:36px; height:36px; display:block; flex-shrink:0; }
+        .logo-text { font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; letter-spacing:-.02em; }
+        .nav-links { display:flex; align-items:center; gap:32px; }
+        .nav-links a { font-size:14px; font-weight:500; color:#374151; text-decoration:none; transition:color .2s; }
+        .nav-links a:hover,.nav-links a.active { color:#e63946; }
+        .nav-cta { padding:10px 22px; background:#003049; color:#fff; border-radius:999px; font-size:14px; font-weight:600; text-decoration:none; transition:background .2s; white-space:nowrap; }
+        .nav-cta:hover { background:#e63946; }
+        .hamburger { display:none; font-size:24px; background:none; border:none; cursor:pointer; padding:8px; line-height:1; }
+
+        .mobile-menu { display:none; position:fixed; inset:0; background:#f8f5f0; z-index:90; padding:88px 24px 40px; flex-direction:column; }
+        .mobile-menu.open { display:flex; }
+        .mobile-menu a { display:block; padding:16px 0; font-size:20px; font-weight:500; color:#111827; text-decoration:none; border-bottom:1px solid #e5e7eb; }
+        .mobile-menu a:hover { color:#e63946; }
+        .mobile-cta { margin-top:24px !important; padding:18px !important; background:#003049; color:#fff !important; border-radius:999px; text-align:center; font-weight:600 !important; border:none; }
+        .mobile-cta:hover { background:#e63946 !important; color:#fff !important; }
+
+        /* Hero */
+        .page-hero { padding:112px 0 64px; }
+        .hero-badge { display:inline-flex; align-items:center; gap:8px; background:#fff; padding:8px 20px; border-radius:999px; border:1px solid #e5e7eb; margin-bottom:28px; font-size:12px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; }
+        .hero-badge i { color:#e63946; font-size:12px; }
+
+        /* Pill tags */
+        .pill { display:inline-block; padding:6px 16px; border-radius:999px; font-size:13px; font-weight:500; margin:0 6px 6px 0; }
+        .pill-navy { background:#003049; color:#fff; }
+        .pill-red { background:#e63946; color:#fff; }
+        .pill-outline-navy { border:2px solid #003049; color:#003049; background:transparent; }
+        .pill-outline { border:1px solid #d1d5db; color:#6b7280; background:#f8f5f0; }
+        .pill-muted { background:#f3f4f6; color:#6b7280; }
+
+        /* Section heading */
+        .sec-h { font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,4.5vw,52px); font-weight:600; letter-spacing:-.03em; line-height:1.05; }
+
+        /* Stats bar (dark) */
+        .stats-bar { background:#003049; color:#fff; padding:48px 0; }
+        .stats-inner { display:grid; grid-template-columns:repeat(4,1fr); }
+        .stat-cell { text-align:center; padding:0 24px; border-right:1px solid rgba(255,255,255,.15); }
+        .stat-cell:last-child { border-right:none; }
+        .stat-num { font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,4vw,44px); font-weight:700; }
+        .stat-lbl { margin-top:6px; color:rgba(255,255,255,.6); font-size:14px; }
+
+        /* Cards */
+        .card { border-radius:24px; padding:36px; transition:transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s; }
+        .card:hover { transform:translateY(-3px); box-shadow:0 20px 40px -12px rgba(0,0,0,.12); }
+        .card-white { background:#fff; border:1px solid #e5e7eb; }
+        .card-navy { background:#003049; color:#fff; }
+        .card-red { background:#e63946; color:#fff; }
+        .card-cream { background:#f8f5f0; border:1px solid #e5e7eb; }
+
+        /* Focus grid */
+        .focus-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+
+        /* Bullet list */
+        .blist { list-style:none; display:flex; flex-direction:column; gap:10px; }
+        .blist li { display:flex; align-items:flex-start; gap:10px; font-size:14px; line-height:1.5; }
+        .blist-dark li { color:#d1d5db; }
+        .blist-dark li::before { content:''; width:8px; height:8px; background:#e63946; border-radius:50%; flex-shrink:0; margin-top:4px; }
+        .blist-red li { color:rgba(255,255,255,.8); }
+        .blist-red li::before { content:''; width:8px; height:8px; background:#fff; border-radius:50%; flex-shrink:0; margin-top:4px; }
+
+        /* How we work */
+        .how-grid { display:flex; flex-direction:column; gap:16px; }
+        .how-item { display:flex; align-items:flex-start; gap:16px; background:#f8f5f0; border-radius:18px; padding:22px; }
+        .how-icon { width:40px; height:40px; background:#003049; color:#fff; border-radius:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; }
+
+        /* Two col */
+        .two-col { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+
+        /* Inline link */
+        .ilink { font-weight:600; color:#003049; text-decoration:none; border-bottom:2px solid #003049; padding-bottom:2px; transition:color .2s,border-color .2s; }
+        .ilink:hover { color:#e63946; border-color:#e63946; }
+
+        /* Buttons */
+        .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; background:#e63946; color:#fff; border-radius:999px; font-weight:600; font-size:16px; text-decoration:none; transition:background .2s; }
+        .btn-primary:hover { background:#d32f2f; }
+
+        /* Footer */
+        .footer-inner { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:40px; }
+        .footer-links { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; font-size:14px; }
+        .fcol-title { font-weight:600; margin-bottom:12px; }
+        .fcol a { display:block; color:#6b7280; text-decoration:none; margin-bottom:8px; transition:color .2s; }
+        .fcol a:hover { color:#003049; }
+
+        /* Animations */
+        @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+        .fu  { animation:fadeUp .7s .00s ease both; }
+        .fu2 { animation:fadeUp .7s .15s ease both; }
+        .fu3 { animation:fadeUp .7s .30s ease both; }
+
+        /* Responsive */
+        @media(max-width:960px) {
+            .nav-links,.nav-cta { display:none; }
+            .hamburger { display:block; }
+            .stats-inner { grid-template-columns:1fr 1fr; row-gap:28px; }
+            .stat-cell { border-right:none; border-bottom:1px solid rgba(255,255,255,.1); padding-bottom:20px; }
+            .stat-cell:nth-child(odd) { border-right:1px solid rgba(255,255,255,.1); }
+            .stat-cell:nth-last-child(-n+2) { border-bottom:none; }
+            .focus-grid { grid-template-columns:1fr; }
+            .two-col { grid-template-columns:1fr; gap:44px; }
+            .footer-links { grid-template-columns:repeat(3,1fr); }
+        }
+        @media(max-width:600px) {
+            .section { padding:56px 0; }
+            .page-hero { padding:96px 0 48px; }
+            .card { padding:24px 20px; }
+            .footer-inner { flex-direction:column; }
+            .footer-links { grid-template-columns:1fr 1fr; gap:24px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">
+            <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
+            <span class="logo-text">Metric AI Lab</span>
+        </a>
+        <div class="nav-links">
+            <a href="/voice-ai">Voice AI</a>
+            <a href="/applied-ai">Applied AI</a>
+            <a href="/portfolio">Portfolio</a>
+        </div>
+        <a href="/#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger">☰</button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/voice-ai" onclick="closeMobile()">Voice AI</a>
+    <a href="/applied-ai" onclick="closeMobile()">Applied AI</a>
+    <a href="/portfolio" onclick="closeMobile()">Portfolio</a>
+    <a href="/#contact" class="mobile-cta" onclick="closeMobile()">Get In Touch</a>
+</div>
+
+<!-- HERO -->
+<header class="page-hero grid-bg border-b">
+    <div class="container">
+        <div class="hero-badge fu"><i class="fa-solid fa-headset"></i> BPO &amp; Answering Services</div>
+        <h1 class="hf fu2" style="font-size:clamp(38px,6vw,72px);font-weight:600;letter-spacing:-.03em;line-height:1.02;margin-bottom:24px;max-width:800px">Sell automation,<br>not just seats.</h1>
+        <p class="fu3" style="font-size:clamp(16px,1.8vw,19px);color:#6b7280;max-width:640px;line-height:1.65;margin-bottom:32px">Your clients are asking for AI agents. The question is whether they buy them from you or from someone else. We build and run production voice AI — 100,000+ calls a day, 20+ languages, on-prem — and white-label it for partners who own the client relationship. Layer in call analytics, and every seat you sell becomes a data product too.</p>
+        <div class="fu3">
+            <span class="pill pill-red">White-Label Voice AI</span>
+            <span class="pill pill-outline-navy">Call Analytics</span>
+            <span class="pill pill-outline">20+ Languages</span>
+            <span class="pill pill-outline">On-Prem by Default</span>
+        </div>
+    </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-cell"><div class="stat-num">100k+</div><div class="stat-lbl">Production calls per day</div></div>
+            <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-lbl">Languages, incl. low-resource</div></div>
+            <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-lbl">Of calls scored by analytics</div></div>
+            <div class="stat-cell"><div class="stat-num">White-<br>label</div><div class="stat-lbl">Ships under your brand</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- TWO OFFERS -->
+<section class="section border-b bg-white">
+    <div class="container">
+        <div style="text-align:center;margin-bottom:52px">
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:10px">What we build for you</div>
+            <h2 class="hf sec-h" style="margin-bottom:14px">The stack behind your AI Services line.</h2>
+            <p style="color:#6b7280;font-size:16px;max-width:560px;margin:0 auto;line-height:1.6">You keep the client relationship and the brand. We supply the production voice stack and the analytics that prove it works.</p>
+        </div>
+        <div class="focus-grid">
+            <div class="card card-navy" style="height:100%">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+                    <div style="width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                        <i class="fa-solid fa-microphone" style="font-size:26px;color:#fff"></i>
+                    </div>
+                    <div>
+                        <h3 class="hf" style="font-size:22px;font-weight:600;color:#fff">White-Label Voice AI</h3>
+                        <div style="color:rgba(255,255,255,.5);font-size:13px">Inbound &amp; outbound, under your brand</div>
+                    </div>
+                </div>
+                <p style="color:#d1d5db;font-size:15px;line-height:1.65;margin-bottom:24px">A full production voice pipeline — ASR, LLM, TTS, RAG, memory — that ships as your product, not ours. Your clients see your name on the invoice; we're the engine underneath.</p>
+                <ul class="blist blist-dark">
+                    <li>Inbound overflow &amp; after-hours tier</li>
+                    <li>Outbound win-back &amp; follow-up campaigns</li>
+                    <li>Fully white-labeled under your brand</li>
+                    <li>On-prem or VPC — your compliance boundary</li>
+                </ul>
+            </div>
+            <div class="card card-red" style="height:100%">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px">
+                    <div style="width:52px;height:52px;background:rgba(255,255,255,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                        <i class="fa-solid fa-chart-line" style="font-size:26px;color:#fff"></i>
+                    </div>
+                    <div>
+                        <h3 class="hf" style="font-size:22px;font-weight:600;color:#fff">Call Analytics</h3>
+                        <div style="color:rgba(255,255,255,.65);font-size:13px">QA, sentiment &amp; coaching on every call</div>
+                    </div>
+                </div>
+                <p style="color:rgba(255,255,255,.85);font-size:15px;line-height:1.65;margin-bottom:24px">An analytics layer over every call — human or AI — so you can prove outcomes to your clients and coach your own agents with data instead of spot checks.</p>
+                <ul class="blist blist-red">
+                    <li>Automated QA scoring on 100% of calls</li>
+                    <li>Sentiment &amp; compliance flagging</li>
+                    <li>Coaching insights for human agents</li>
+                    <li>Client-facing outcome reporting</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section class="section border-b">
+    <div class="container">
+        <div class="card card-navy" style="display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+            <div style="max-width:660px">
+                <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#e63946;margin-bottom:10px">Why us</div>
+                <h3 class="hf" style="font-size:24px;font-weight:600;color:#fff;margin-bottom:10px">We build the engine, you keep the brand.</h3>
+                <p style="color:#d1d5db;font-size:15px;line-height:1.65">Most AI vendors want the logo on the call. We don't. We fine-tune ASR, LLM, and TTS per partner, run it on your infrastructure boundary, and stay invisible to your clients — so the AI Services line is entirely yours to sell.</p>
+            </div>
+            <div style="flex-shrink:0">
+                <a href="/research" class="pill" style="background:#fff;color:#003049;font-weight:600;font-size:14px;padding:12px 24px;text-decoration:none">Our research →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTION PROOF -->
+<section class="section border-b bg-white">
+    <div class="container">
+        <div class="two-col">
+            <div>
+                <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;margin-bottom:14px">In production</div>
+                <h2 class="hf sec-h" style="margin-bottom:24px">Battle-tested, daily.</h2>
+                <p style="color:#6b7280;font-size:17px;line-height:1.65;margin-bottom:16px">A global consumer platform runs 100,000+ of our outbound calls every day in 20+ languages, fully on-premise. CX partners white-label the same stack to hand their tech clients an AI Services line without building one from scratch.</p>
+                <p style="color:#6b7280;font-size:17px;line-height:1.65;margin-bottom:24px">Client names available on a call — with their permission, not on a webpage.</p>
+                <a href="/#contact" class="ilink">Ask us about them →</a>
+            </div>
+            <div class="how-grid">
+                <div class="how-item">
+                    <div class="how-icon">1</div>
+                    <div><div style="font-weight:600;margin-bottom:4px">Pilot one program</div><div style="color:#6b7280;font-size:14px;line-height:1.55">2–4 weeks on one client program: overflow, after-hours, or a single outbound campaign, measured against your current numbers.</div></div>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">2</div>
+                    <div><div style="font-weight:600;margin-bottom:4px">White-label &amp; scale</div><div style="color:#6b7280;font-size:14px;line-height:1.55">We ship it under your brand across programs, with call analytics layered in from day one.</div></div>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">3</div>
+                    <div><div style="font-weight:600;margin-bottom:4px">Own it</div><div style="color:#6b7280;font-size:14px;line-height:1.55">Weights, pipeline, analytics — handed over. On-prem means it runs without us.</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:96px 0;background:#003049;color:#fff">
+    <div style="max-width:640px;margin:0 auto;text-align:center;padding:0 24px">
+        <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#e63946;margin-bottom:16px">Start with a pilot</div>
+        <h2 class="hf" style="font-size:clamp(32px,5vw,54px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin-bottom:20px">Give your clients AI agents, on your brand.</h2>
+        <p style="color:#d1d5db;font-size:17px;margin-bottom:44px">One program, one client — we'll pilot it against your current numbers, white-labeled from day one.</p>
+        <a href="/#contact" class="btn-primary" style="display:inline-flex;font-size:17px;padding:18px 40px">Start a conversation →</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#f8f5f0;border-top:1px solid #e5e7eb;padding:64px 0">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px">
+                    <img src="logo.svg" alt="" width="36" height="36" class="logo-icon">
+                    <span class="logo-text">Metric AI Lab</span>
+                </a>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
+            </div>
+            <div class="footer-links">
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="/voice-ai">Voice AI</a><a href="/applied-ai">Applied AI</a><a href="/research">Research</a><a href="/portfolio">Portfolio</a></div>
+                <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metricailab.com">info@metricailab.com</a></div>
+                <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank">LinkedIn</a></div>
+            </div>
+            <div style="font-size:12px;color:#9ca3af;align-self:flex-end;white-space:nowrap">© 2026 Metric AI Lab</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('mobile-menu').classList.toggle('open'));
+    function closeMobile(){document.getElementById('mobile-menu').classList.remove('open');}
+</script>
+</body>
+</html>

@@ -12,16 +12,20 @@ Key facts:
 ## Services
 
 - [Applied AI](https://metricailab.com/applied-ai): AI product development (agents, chatbots, RAG, document AI / intelligent document processing, text-to-SQL, voice AI), custom model training and fine-tuning (LLMs, VLMs, embeddings, computer vision, forecasting, distillation), and AI strategy & discovery (audits, use-case prioritization, PoCs).
-- [Voice AI](https://metricailab.com/voice-ai): Production-grade voice agents, real-time speech systems, and multilingual conversational AI solutions.
 
 ## Research
 
 - [Research](https://metricailab.com/research): Physical AI (JEPA world models, intuitive physics, robotic failure detection, benchmark science), low-resource language AI (Armenian text embeddings ATE-1/ATE-2, ArmBench benchmarks, EACL 2026 publication), and Document AI (ColQwen visual document retrieval, #1 on ViDoRe).
-- [Physical AI](https://metricailab.com/physical-ai): Frontier research and applications in JEPA-based world models, robotic failure detection (FailBench, FailDetect), and Physical AI benchmark meta-analysis (MetaBench Physical).
 
 ## Work
 
 - [Portfolio](https://metricailab.com/portfolio): Selected projects — real-time multilingual voice agents for banking and telecom, industrial defect detection, traffic intelligence, legal AI assistants, text-to-SQL analytics, digital pathology, churn prediction, demand forecasting.
+
+## Industry Solutions
+
+- [Voice AI for Logistics](https://metricailab.com/voice-ai-logistics): Voice AI for carrier calls (capacity sourcing, check calls, track & trace, dock appointments) in English and Spanish, plus AI load matching, AI recommendations, and AI sales intelligence for freight brokerages and 3PLs.
+- [Voice AI for BPOs & Answering Services](https://metricailab.com/voice-ai-services): White-label production voice AI for CX partners and answering services who own the client relationship, plus call analytics (QA, sentiment, coaching) on every call.
+- [Voice AI for Field-Service & Booking SaaS](https://metricailab.com/voice-ai-saas): White-label voice agent that verifies, troubleshoots, and books the job for field-service and booking platforms, plus an in-product analytics/RAG copilot for scheduling and dispatch insight.
 
 ## Contact
 
