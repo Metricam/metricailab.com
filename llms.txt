@@ -23,7 +23,7 @@ Key facts:
 - [Open speech and language models for Armenian](https://metricailab.com/blog/open-armenian-speech-and-language-models): Announcement of OhanASR, OhanTTS and Ayb (Nov 2026).
 - [OhanASR v0.1](https://metricailab.com/blog/ohanasr): State-of-the-art open Armenian speech recognition (batch + streaming); #1 by CER on ArmBench-ASR among open and closed models.
 - [OhanTTS v0.1](https://metricailab.com/blog/ohantts): Streaming Armenian-focused text-to-speech with voice cloning (8 languages, ~330 ms to first audio).
-- [Ayb v0.5](https://metricailab.com/blog/ayb): Open Armenian LLM (0.8B, 4B, 9B) and first step towards sovereign Armenian AI; Ayb 9B is the state-of-the-art open model for Armenian, competitive with Gemini, GPT and Claude on Armenian tasks; trained end to end (pretraining, SFT, DPO, GRPO) with an Armenian-efficient tokenizer; early vision.
+- [Ayb v0.5](https://metricailab.com/blog/ayb): Open Armenian LLM (0.8B, 4B, 9B) and first step towards sovereign Armenian AI; Ayb 9B ranks #3 of all models on ArmBench (ahead of GPT-5.2 Pro, Gemini 3 Flash and Claude 3.7 Sonnet); built on Qwen3.5, trained end to end (continued pretraining, SFT, DPO, GRPO) with an Armenian-extended tokenizer; vision-language.
 
 ## Work
 
