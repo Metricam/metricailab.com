@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing OhanTTS v0.1 — Streaming Armenian Text-to-Speech • Metric AI Lab</title>
+    <meta name="description" content="OhanTTS v0.1 is an open Armenian-focused text-to-speech model with voice cloning and streaming output: first audio in ~330 ms, eight languages, trained on 160 hours of speech including 61 hours of Armenian.">
+    <link rel="canonical" href="https://metricailab.com/blog/ohantts">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Introducing OhanTTS v0.1 — Streaming Armenian Text-to-Speech">
+    <meta property="og:description" content="Open Armenian-focused TTS with voice cloning and streaming output. First audio in ~330 ms, eight languages.">
+    <meta property="og:url" content="https://metricailab.com/blog/ohantts">
+    <meta property="og:image" content="https://metricailab.com/assets/blog/ohantts-v0.1.webp">
+    <meta property="article:published_time" content="2026-11-20">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://metricailab.com/assets/blog/ohantts-v0.1.webp">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Introducing OhanTTS v0.1 — Streaming Armenian Text-to-Speech","datePublished":"2026-11-20","image":"https://metricailab.com/assets/blog/ohantts-v0.1.webp","url":"https://metricailab.com/blog/ohantts","author":{"@type":"Organization","name":"Metric AI Lab","url":"https://metricailab.com"},"publisher":{"@type":"Organization","name":"Metric AI Lab","logo":{"@type":"ImageObject","url":"https://metricailab.com/favicon.png"}},"keywords":["OhanTTS","Armenian text-to-speech","Armenian TTS","voice cloning","streaming TTS"]}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Armenian:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/assets/blog/blog.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><img src="/logo.svg" alt="" width="36" height="36" class="logo-icon"><span class="logo-text">Metric AI Lab</span></a>
+        <div class="nav-links">
+            <a href="/applied-ai">Applied AI</a>
+            <a href="/research">Research</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/blog/" class="active">Blog</a>
+        </div>
+        <a href="/#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/applied-ai">Applied AI</a>
+    <a href="/research">Research</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#contact" class="mobile-cta">Get In Touch</a>
+</div>
+
+<header class="post-hero grid-bg">
+    <div class="container">
+        <div class="post-meta fu"><time datetime="2026-11-20">November 20, 2026</time><span class="tag tag-model">Model</span></div>
+        <h1 class="fu2">Introducing OhanTTS v0.1</h1>
+        <p class="dek fu3">Streaming Armenian text-to-speech with voice cloning — the first words play in about a third of a second.</p>
+        <div class="release-links fu4">
+            <a href="https://huggingface.co/collections/Metric-AI/ohantts-v01" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-solid fa-download"></i> Model on Hugging Face</a>
+            <a href="https://github.com/Metric-AI-Lab/sglang-omnistream/blob/main/docs/cookbook/ohan_tts.md" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-solid fa-book"></i> Serving cookbook</a>
+        </div>
+        <div class="hero-stats fu4">
+            <div class="hero-stat"><b>331 ms</b><span>Time to first audio</span></div>
+            <div class="hero-stat"><b>8</b><span>Languages</span></div>
+            <div class="hero-stat"><b>61 h</b><span>Armenian speech</span></div>
+            <div class="hero-stat"><b>3–10 s</b><span>To clone a voice</span></div>
+        </div>
+    </div>
+    <div class="hero-banner fu4"><img src="/assets/blog/ohantts-v0.1.webp" alt="OhanTTS v0.1 — Open Armenian Speech Generation" width="1672" height="941"></div>
+</header>
+
+<main class="post-wrap">
+    <div class="post-layout with-toc">
+        <aside class="toc" aria-label="On this page">
+            <div class="label">On this page</div>
+            <ol>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#cloning">Voice cloning</a></li>
+                <li><a href="#streaming">Built for streaming</a></li>
+                <li><a href="#results">Results</a>
+                    <ol>
+                        <li><a href="#results-quality">Synthesis quality</a></li>
+                        <li><a href="#results-speed">Streaming performance</a></li>
+                    </ol>
+                </li>
+                <li><a href="#listen">Listen</a></li>
+                <li><a href="#availability">Get the model</a></li>
+                <li><a href="#limitations">Known limitations</a></li>
+                <li><a href="#next">What's next</a></li>
+            </ol>
+        </aside>
+
+        <article class="prose">
+            <h2 id="overview" style="margin-top:0">Overview</h2>
+            <p class="lede">Today we're releasing <strong>OhanTTS v0.1</strong>, an open text-to-speech model built for Armenian. It clones a voice from a few seconds of audio and streams speech as it is generated, so listeners hear the first words almost immediately.</p>
+            <p>Armenian comes first, but OhanTTS also speaks <strong>English, Spanish, Arabic, Russian, Mandarin Chinese, Japanese and French</strong>. We started from a multilingual speech model and trained it further on about <strong>160 hours</strong> of reference recordings across those eight languages, <strong>61 hours</strong> of them in Armenian.</p>
+            <p>The name comes from Dzenov Ohan, Ohan the Loud-Voiced, from the epic <em>Daredevils of Sassoun</em>. He shares it with <a href="/blog/ohanasr">OhanASR</a>, our speech recognition model: OhanASR listens and OhanTTS speaks.</p>
+
+            <h2 id="cloning">Voice cloning</h2>
+            <p>Give OhanTTS a <strong>3–10 second recording</strong> and its transcript, and it will speak any new text in that voice. Below, Ohan himself introduces the model: the left clip is the reference, the right one was generated from it.</p>
+            <div class="pair-grid">
+                <div class="sample">
+                    <span class="label">Reference recording</span>
+                    <audio controls preload="none" src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/PELFyegI3M66CyaQf1LFb.wav"></audio>
+                    <div class="hy" lang="hy">Ասում են՝ երբ Ձենով Օհանը գոռում էր, ամբողջ Սասունը լսում էր։ Նրա ձայնը հասնում էր սարերից այն կողմ։</div>
+                    <div class="en">They say when Dzenov Ohan shouted, all of Sasun could hear. His voice reached beyond the mountains.</div>
+                </div>
+                <div class="sample">
+                    <span class="label">Generated by OhanTTS</span>
+                    <audio controls preload="none" src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/LGYau9LS2WZqhgZOiP6GV.wav"></audio>
+                    <div class="hy" lang="hy">Բարև, ես Ձենով Օհանն եմ՝ Սասունից։ Ուրախ եմ, որ այսօր կարող եմ խոսել ձեզ հետ։</div>
+                    <div class="en">Hello, I'm Dzenov Ohan, from Sasun. I'm glad I can talk with you today.</div>
+                </div>
+            </div>
+
+            <h2 id="streaming">Built for streaming</h2>
+            <p>Most TTS models synthesize the whole utterance before returning any audio, so the longer the text, the longer the silence. That's fine for audiobooks and too slow for a voice agent.</p>
+            <p>OhanTTS predicts audio <strong>one frame at a time</strong> and decodes each block to a waveform as soon as it is ready, so the first words reach the listener in about a third of a second while the rest is still being generated. The text is still sent in one request. Only the audio is streamed.</p>
+            <figure class="figure wide">
+                <img src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/GlmSrSJx-V_xPmbCIbrlz.png" alt="OhanTTS streaming pipeline: reference audio and text go into a causal Transformer that predicts one frame of 8 codec IDs at a time, fed back until speech ends; a waveform decoder turns blocks of frames into audio that is streamed out" width="1568" height="531" loading="lazy">
+                <figcaption><b>Figure 1.</b> The streaming pipeline. A causal Transformer predicts one frame of codec tokens at a time, and the waveform decoder turns each block into audio straight away.</figcaption>
+            </figure>
+
+            <h2 id="results">Results</h2>
+            <h3 id="results-quality">Synthesis quality</h3>
+            <p>We tested OhanTTS on held-out Armenian synthesis requests, with speakers and texts it had not seen in training.</p>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+                    <tbody>
+                        <tr><td>Word error rate (WER) ↓</td><td>14.70%</td></tr>
+                        <tr><td>Character error rate (CER) ↓</td><td>6.15%</td></tr>
+                        <tr><td>Speaker similarity (SIM-o) ↑</td><td>0.693</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="figcaption">WER and CER compare an automatic transcription of the generated speech with the text that was requested, so they measure intelligibility. SIM-o measures how close the generated voice is to the reference speaker.</p>
+
+            <h3 id="results-speed">Streaming performance</h3>
+            <p>We served the model over local HTTP on a single shared <strong>NVIDIA GB10</strong>, streaming PCM audio, and increased the number of concurrent clients. With one client, audio starts in <strong>331 ms</strong>. Even with 16 clients, every stream is still generated faster than real time (real-time factor below 1).</p>
+            <figure class="figure">
+                <div class="bars" data-metrics="ttfa,rtf" data-units='{"ttfa":" ms","rtf":"×"}' data-decimals='{"ttfa":0,"rtf":3}' role="img" aria-label="Time to first audio and real-time factor by number of concurrent clients. Full values in the table below.">
+                    <div class="bars-head">
+                        <div class="bars-title">OhanTTS-v0.1 by concurrent clients (lower is better)</div>
+                        <div class="seg-toggle" role="group" aria-label="Metric"><button data-metric="ttfa" aria-pressed="true">Time to first audio</button><button data-metric="rtf" aria-pressed="false">Real-time factor</button></div>
+                    </div>
+                    <div class="bar-row"><div class="bar-label">1 client</div><div class="bar-pair"><div class="bar-line" data-series="OhanTTS-v0.1" data-ttfa="331" data-rtf="0.178"><div class="bar bar-a"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">2 clients</div><div class="bar-pair"><div class="bar-line" data-series="OhanTTS-v0.1" data-ttfa="464" data-rtf="0.236"><div class="bar bar-a"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">4 clients</div><div class="bar-pair"><div class="bar-line" data-series="OhanTTS-v0.1" data-ttfa="651" data-rtf="0.302"><div class="bar bar-a"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">8 clients</div><div class="bar-pair"><div class="bar-line" data-series="OhanTTS-v0.1" data-ttfa="1142" data-rtf="0.505"><div class="bar bar-a"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">16 clients</div><div class="bar-pair"><div class="bar-line" data-series="OhanTTS-v0.1" data-ttfa="2169" data-rtf="0.841"><div class="bar bar-a"></div><span class="bar-val"></span></div></div></div>
+                </div>
+                <figcaption><b>Figure 2.</b> Latency and speed under concurrent load. A real-time factor below 1× means audio is generated faster than it plays.</figcaption>
+            </figure>
+            <div class="table-wrap" style="margin-top:1.6em">
+                <table class="data-table">
+                    <thead><tr><th>Concurrent clients</th><th>Time to first audio ↓</th><th>Real-time factor ↓</th><th>Requests/s ↑</th><th>Audio seconds/s ↑</th></tr></thead>
+                    <tbody>
+                        <tr class="hl"><td>1</td><td>331 ms</td><td>0.178</td><td>0.69</td><td>5.59</td></tr>
+                        <tr><td>2</td><td>464 ms</td><td>0.236</td><td>0.90</td><td>7.30</td></tr>
+                        <tr><td>4</td><td>651 ms</td><td>0.302</td><td>1.36</td><td>11.02</td></tr>
+                        <tr><td>8</td><td>1,142 ms</td><td>0.505</td><td>1.88</td><td>15.33</td></tr>
+                        <tr><td>16</td><td>2,169 ms</td><td>0.841</td><td>2.52</td><td>20.52</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="figcaption">Measured on a single shared NVIDIA GB10. Results depend on hardware, request length and server load.</p>
+
+            <h2 id="listen">Listen</h2>
+            <h3 id="listen-voices">One sentence, two voices</h3>
+            <div class="demo">
+                <div class="hy-line" lang="hy">Ամեն անգամ, երբ վերադառնում եմ Երևան, առաջինը գնում եմ Կասկադ՝ քաղաքին վերևից նայելու։</div>
+                <div class="en">Every time I come back to Yerevan, the first thing I do is go to Cascade to look at the city from above.</div>
+                <div class="pair-grid">
+                    <div class="sample"><span class="label">Female voice</span><audio controls preload="none" src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/WIurXFWgAmJHgjEcYxbO8.wav"></audio></div>
+                    <div class="sample"><span class="label">Male voice</span><audio controls preload="none" src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/QpKLR4xihWOCZYJN7Y1ms.wav"></audio></div>
+                </div>
+            </div>
+
+            <h3 id="listen-design">Voice design</h3>
+            <p>No reference recording? OhanTTS can also build a voice from a short text description.</p>
+            <div class="demo">
+                <div class="hy-line" lang="hy">Շնորհակալություն զանգահարելու համար։ Ձեր զանգը մեզ համար կարևոր է և շուտով կպատասխանի մեր առաջին ազատ մասնագետը։</div>
+                <div class="en">Thank you for calling. Your call is important to us and our first available specialist will answer shortly.</div>
+                <div><span class="label">Voice description</span> <code>male, moderate pitch</code></div>
+                <audio controls preload="none" src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/si4WRcnzS1e7MZ0WJ6zgI.wav"></audio>
+            </div>
+
+            <h3 id="listen-english">English, too</h3>
+            <div class="demo">
+                <div class="en" style="font-size:16px">"Hi, I'm Ohan. I was built for Armenian, but I speak English too, and I'd be happy to read anything you'd like."</div>
+                <audio controls preload="none" src="https://cdn-uploads.huggingface.co/production/uploads/6ae064c89ca9c51025de48fe/E7fzelTdoHzGWwAFq9bBF.wav"></audio>
+            </div>
+
+            <h2 id="availability">Get the model</h2>
+            <p>OhanTTS is released under <strong>CC BY-NC 4.0</strong>, free for research, education and other non-commercial use. For commercial licensing, custom voices or on-prem deployment, <a href="/#contact">get in touch</a>.</p>
+            <p>It is served through <strong>SGLang-Omni</strong>, which exposes an OpenAI-compatible <code>/v1/audio/speech</code> endpoint, so most existing TTS clients work with it unchanged. The cookbook has complete voice-cloning and streaming examples.</p>
+            <ul class="link-list">
+                <li><a href="https://huggingface.co/collections/Metric-AI/ohantts-v01" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-cube"></i></span><span class="ll-text"><b>OhanTTS v0.1</b><small>Streaming Armenian-focused TTS with voice cloning</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="https://github.com/Metric-AI-Lab/sglang-omnistream/blob/main/docs/cookbook/ohan_tts.md" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-book"></i></span><span class="ll-text"><b>OhanTTS cookbook</b><small>Voice cloning and streaming examples</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="https://github.com/Metric-AI-Lab/sglang-omnistream" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-brands fa-github"></i></span><span class="ll-text"><b>SGLang-Omni</b><small>Serving stack with an OpenAI-compatible speech endpoint</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
+            </ul>
+
+            <h2 id="limitations">Known limitations</h2>
+            <p>This is an early release. Here's what we know isn't right yet:</p>
+            <ul>
+                <li><strong>Long inputs.</strong> Each request produces up to about 20 seconds of audio, so split longer text into several requests.</li>
+                <li><strong>Armenian punctuation.</strong> Marks like «՝», «՛», «՜» and «՞» don't always come through in pauses, stress and intonation.</li>
+                <li><strong>Unfamiliar names.</strong> Rare names and foreign words can be mispronounced.</li>
+                <li><strong>Code-switching.</strong> Switching languages mid-utterance occasionally causes pronunciation or generation errors.</li>
+                <li><strong>Reference quality.</strong> Cloning works best with a clean recording and an exact transcript.</li>
+            </ul>
+            <div class="callout red"><b>Clone responsibly.</b> Only use someone's voice as a reference with their permission.</div>
+
+            <h2 id="next">What's next</h2>
+            <p>The next big step is <strong>bistreaming</strong>: accepting text in chunks and speaking while it's still arriving. Connected to a language model like <a href="/blog/ayb">Ayb</a>, speech could start from the first words of a reply while the rest is still being written. We're also working on <strong>more robust pronunciation across languages</strong> and <strong>longer generation</strong>.</p>
+            <p>Try it and tell us what you build, and what breaks. Feedback is how v0.2 gets better.</p>
+        </article>
+    </div>
+</main>
+
+<section class="related">
+    <div class="container">
+        <div class="section-head" style="margin-top:0"><h2>More from the lab</h2></div>
+        <div class="post-grid">
+            <a href="/blog/open-armenian-speech-and-language-models" class="post-card">
+                <div class="thumb"><img src="/assets/blog/open-armenian-models.webp" alt="OhanASR, OhanTTS and Ayb — open Armenian AI models" width="1672" height="941" loading="lazy"></div>
+                <div class="body">
+                    <div class="post-meta"><time datetime="2026-11-20">Nov 20, 2026</time><span class="tag tag-model">Model</span></div>
+                    <h3>Open speech and language models for Armenian</h3>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+            <a href="/blog/ohanasr" class="post-card">
+                <div class="thumb"><img src="/assets/blog/ohanasr-v0.1.webp" alt="Introducing OhanASR v0.1" width="1672" height="941" loading="lazy"></div>
+                <div class="body">
+                    <div class="post-meta"><time datetime="2026-11-20">Nov 20, 2026</time><span class="tag tag-model">Model</span></div>
+                    <h3>Introducing OhanASR v0.1</h3>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+            <a href="/blog/ayb" class="post-card">
+                <div class="thumb"><img src="/assets/blog/ayb-v0.5.webp" alt="Introducing Ayb v0.5" width="1672" height="941" loading="lazy"></div>
+                <div class="body">
+                    <div class="post-meta"><time datetime="2026-11-20">Nov 20, 2026</time><span class="tag tag-model">Model</span></div>
+                    <h3>Introducing Ayb v0.5</h3>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px"><img src="/logo.svg" alt="" width="36" height="36" class="logo-icon"><span class="logo-text">Metric AI Lab</span></a>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
+            </div>
+            <div class="footer-links">
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="/applied-ai">Applied AI</a><a href="/research">Research</a><a href="/portfolio">Portfolio</a><a href="/blog/">Blog</a></div>
+                <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metricailab.com">info@metricailab.com</a></div>
+                <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank" rel="noopener">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank" rel="noopener">LinkedIn</a></div>
+            </div>
+            <div style="font-size:12px;color:#9ca3af;align-self:flex-end;white-space:nowrap">© 2026 Metric AI Lab</div>
+        </div>
+    </div>
+</footer>
+<script src="/assets/blog/blog.js"></script>
+</body>
+</html>
