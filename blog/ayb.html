@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introducing Ayb v0.5 — Open Armenian Large Language Model + Vision • Metric AI Lab</title>
-    <meta name="description" content="Ayb v0.5 is Metric AI Lab's open Armenian large language model and a first step towards sovereign Armenian AI. Ayb 9B is the state-of-the-art open model for Armenian, rivalling Gemini, GPT and Claude, with a custom Armenian tokenizer and early vision.">
+    <meta name="description" content="Ayb v0.5 is Metric AI Lab's open Armenian large language model and a first step towards sovereign Armenian AI. Ayb 9B ranks #3 of all models on ArmBench, ahead of GPT-5.2 Pro, Gemini 3 Flash and Claude 3.7 Sonnet, with an Armenian tokenizer and vision.">
     <link rel="canonical" href="https://metricailab.com/blog/ayb">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Introducing Ayb v0.5 — Open Armenian Large Language Model + Vision">
-    <meta property="og:description" content="Ayb v0.5 is Metric AI Lab's open Armenian large language model and a first step towards sovereign Armenian AI. Ayb 9B is the state-of-the-art open model for Armenian, rivalling Gemini, GPT and Claude, with a custom Armenian tokenizer and early vision.">
+    <meta property="og:description" content="Ayb v0.5 is Metric AI Lab's open Armenian large language model and a first step towards sovereign Armenian AI. Ayb 9B ranks #3 of all models on ArmBench, ahead of GPT-5.2 Pro, Gemini 3 Flash and Claude 3.7 Sonnet, with an Armenian tokenizer and vision.">
     <meta property="og:url" content="https://metricailab.com/blog/ayb">
     <meta property="og:image" content="https://metricailab.com/assets/blog/ayb-v0.5.webp">
     <meta property="article:published_time" content="2026-11-20">
@@ -60,7 +60,7 @@
     </div>
     <div class="container">
         <div class="hero-stats fu4">
-            <div class="hero-stat"><b>SOTA</b><span>Open Armenian LLM</span></div>
+            <div class="hero-stat"><b>#3</b><span>On ArmBench, of all models</span></div>
             <div class="hero-stat"><b>3 sizes</b><span>0.8B · 4B · 9B</span></div>
             <div class="hero-stat"><b>End to end</b><span>Pretrain → SFT → DPO → GRPO</span></div>
             <div class="hero-stat"><b>+ Vision</b><span>Early capabilities</span></div>
@@ -83,8 +83,15 @@
                         <li><a href="#tokenizer">An Armenian tokenizer</a></li>
                     </ol>
                 </li>
-                <li><a href="#vision">Early vision</a></li>
-                <li><a href="#evaluation">Evaluation</a></li>
+                <li><a href="#evaluation">Results</a>
+                    <ol>
+                        <li><a href="#armbench">ArmBench</a></li>
+                        <li><a href="#ifeval">Armenian IFEval</a></li>
+                    </ol>
+                </li>
+                <li><a href="#examples">Ayb in practice</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#limitations">Limitations</a></li>
                 <li><a href="#availability">Get the models</a></li>
                 <li><a href="#next">What's next</a></li>
             </ol>
@@ -92,8 +99,8 @@
 
         <article class="prose">
             <h2 id="overview" style="margin-top:0">Overview</h2>
-            <p class="lede">Today we're releasing <strong>Ayb v0.5</strong>, our open large language model for Armenian and our <strong>first step towards sovereign Armenian AI</strong>. Its largest version, <strong>Ayb 9B, is the state-of-the-art open-source model for Armenian</strong>, and on Armenian tasks it competes with, and often beats, the largest frontier models from Google, OpenAI and Anthropic.</p>
-            <p>Ayb was trained end to end, from pretraining to reinforcement learning, on top of a tokenizer we built for Armenian. That makes it much cheaper and faster to run on Armenian text than closed models such as Claude. It also comes with early vision capabilities, and in three sizes: <strong>0.8B, 4B and 9B</strong>.</p>
+            <p class="lede">Today we're releasing <strong>Ayb v0.5</strong>, our family of open large language models for Armenian and our <strong>first step towards sovereign Armenian AI</strong>. Its largest version, <strong>Ayb 9B, ranks #3 of all models on ArmBench</strong>, ahead of GPT-5.2 Pro, Gemini 3 Flash and Claude 3.7 Sonnet. The only open model above it is the 763B DeepSeek-V4.1-Flash.</p>
+            <p>Ayb was trained end to end, from continued pretraining to reinforcement learning, with a tokenizer extended for Armenian. That makes it much cheaper and faster to run on Armenian text than closed models such as Claude. It understands images as well as text, and comes in three sizes: <strong>0.8B, 4B and 9B</strong>.</p>
             <p><span lang="hy">Այբ</span> (Ayb) is the first letter of the Armenian alphabet, created by Mesrop Mashtots in 405 AD. Written Armenian begins with it, and so does our Armenian AI stack.</p>
 
             <h2 id="sovereign">Sovereign Armenian AI</h2>
@@ -103,32 +110,110 @@
             <h2 id="models">Three sizes</h2>
             <p>All three sizes are in one Hugging Face collection, so you can pick the balance of quality and cost that fits your use case:</p>
             <ul>
-                <li><strong>Ayb 9B</strong> is the flagship and the <strong>state-of-the-art open-source Armenian model</strong>. It goes head to head with Gemini, GPT and Claude on Armenian tasks.</li>
-                <li><strong>Ayb 4B</strong> is the middle ground: strong Armenian quality for a fraction of the compute.</li>
-                <li><strong>Ayb 0.8B</strong> is small enough for laptops, edge devices and high-volume pipelines.</li>
+                <li><strong>Ayb 9B</strong> is the flagship: <strong>#3 on ArmBench</strong>, ahead of much larger open and proprietary models. It handles multi-turn conversations, complex instructions and tool calling.</li>
+                <li><strong>Ayb 4B</strong> balances quality and compute (<strong>#8 on ArmBench</strong>), a practical choice for everyday Armenian applications and assistants.</li>
+                <li><strong>Ayb 0.8B</strong> is built for constrained hardware and high-volume pipelines, including as the language component in speech recognition, text-to-speech and OCR systems. It still ranks <strong>#16 on ArmBench</strong>, ahead of Mistral Large and Gemini 2.5 Pro.</li>
             </ul>
 
             <h2 id="training">Trained end to end</h2>
-            <p>Ayb is not a thin fine-tune on top of someone else's chatbot. We trained it through the full pipeline:</p>
+            <p>Ayb is built on the Qwen3.5 architecture and adapted to Armenian through a full training pipeline:</p>
             <ol>
-                <li><strong>Pretraining</strong> on Armenian text, so the model learns the language, its grammar and its knowledge at the foundation.</li>
-                <li><strong>Supervised fine-tuning (SFT)</strong> to follow instructions and hold natural conversations in Armenian.</li>
-                <li><strong>Preference optimization (DPO)</strong> to align its answers with what Armenian speakers actually prefer.</li>
-                <li><strong>Reinforcement learning (GRPO)</strong> to sharpen reasoning and accuracy on verifiable tasks.</li>
+                <li><strong>Armenian tokenizer.</strong> We extended the tokenizer with Armenian vocabulary while keeping the model's existing capabilities (more below).</li>
+                <li><strong>Continued pretraining</strong> on Armenian and English text, to deepen the model's Armenian vocabulary, grammar and knowledge. The corpus runs through mid-2026.</li>
+                <li><strong>Supervised fine-tuning (SFT)</strong> on instruction data, to follow Armenian requests, hold conversations and produce structured outputs.</li>
+                <li><strong>Post-training with DPO and GRPO</strong>, to align answers with what Armenian speakers prefer and sharpen accuracy.</li>
             </ol>
-            <!-- TODO: add base model, data volume and training compute if you want to share them. -->
 
             <h3 id="tokenizer">An Armenian tokenizer</h3>
             <p>Most LLMs tokenize Armenian badly. Their vocabularies were built mostly for English, so Armenian words get split into many small pieces. Every extra token costs money, adds latency and uses up context.</p>
-            <p>We built Ayb's tokenizer to be efficient for Armenian. The same Armenian text takes far fewer tokens, so <strong>Ayb is significantly cheaper and faster to run than closed models such as Claude</strong>, and fits more Armenian into the same context window.</p>
+            <p>We extended Ayb's tokenizer with Armenian-specific vocabulary. The same Armenian text takes far fewer tokens, so <strong>Ayb is significantly cheaper and faster to run than closed models such as Claude</strong>, and fits more Armenian into the same context window.</p>
             <!-- TODO: add a tokens-per-word comparison (Ayb vs Claude / GPT / Gemini) if available. -->
 
-            <h2 id="vision">Early vision</h2>
-            <p>Ayb also understands images. Through a lightweight fine-tuning stage, it gained <strong>early vision capabilities</strong>: reading Armenian text in photos and screenshots, pulling information out of forms and scanned documents, and answering questions about images. This is an early capability that we'll keep strengthening in future releases.</p>
+            <h2 id="evaluation">Results</h2>
+            <p>We evaluated Ayb v0.5 zero-shot on two Armenian benchmarks. <a href="https://metric-ai-armbench-llm.hf.space/" target="_blank" rel="noopener">ArmBench</a>, the open benchmark we built and maintain, covers 24 Armenian tasks across knowledge, reading comprehension, analysis, generation and correction. <strong>Armenian IFEval</strong> is the Armenian adaptation of Instruction-Following Evaluation.</p>
 
-            <h2 id="evaluation">Evaluation</h2>
-            <p>We evaluate Ayb on <a href="https://metric-ai-armbench-llm.hf.space/" target="_blank" rel="noopener">ArmBench-LLM</a>, the open Armenian LLM benchmark we built and maintain. Every number is reproducible and directly comparable with open and closed models on the public leaderboard.</p>
-            <!-- TODO: add ArmBench-LLM results table (Ayb 0.8B/4B/9B vs Gemini, GPT, Claude and open models) using .table-wrap > table.data-table; highlight Ayb rows with tr.hl -->
+            <h3 id="armbench">ArmBench</h3>
+            <p><strong>Ayb 9B scores 0.6164 and ranks #3 of all models, open or closed</strong>, behind only GPT-6.1 Sol and DeepSeek-V4.1-Flash. It beats GPT-5.2 Pro, Gemini 3 Flash, Claude 3.7 Sonnet, Gemini 3 Pro and Claude Sonnet 4. Ayb 4B (0.5828) ranks #8, ahead of Grok 4 Fast and Gemini 2.5 Flash, and even Ayb 0.8B (0.5300) ranks #16.</p>
+            <figure class="figure">
+                <img src="/assets/blog/ayb-armbench-top20.webp" alt="ArmBench top 20. 1 GPT-6.1 Sol 0.6514; 2 DeepSeek-V4.1-Flash 0.6286; 3 Ayb 0.5 9B 0.6164; 4 GPT-5.2 Pro 0.6017; 5 Gemini 3 Flash preview 0.5951; 6 Claude 3.7 Sonnet 0.5910; 7 Gemma 4 31B 0.5871; 8 Ayb 0.5 4B 0.5828; 9 Grok 4 Fast 0.5788; 10 Gemini 2.5 Flash 0.5735; 11 Claude Sonnet 4 0.5729; 12 Gemini 3 Pro preview 0.5665; 13 GPT-5.4 mini 0.5612; 14 Qwen3.5 27B 0.5503; 15 Grok 4.1 Fast 0.5460; 16 Ayb 0.5 0.8B 0.5300; 17 Mistral Large 2512 0.5229; 18 GPT-5.4 nano 0.5105; 19 Gemini 2.5 Pro 0.5001; 20 Gemma 3 27B 0.4936." width="1460" height="1038" loading="lazy">
+                <figcaption><b>ArmBench, top 20.</b> Ayb models in red. Zero-shot, thinking disabled for Ayb. Full results on the <a href="https://metric-ai-armbench-llm.hf.space/" target="_blank" rel="noopener">ArmBench leaderboard</a>.</figcaption>
+            </figure>
+            <p>All three models are strongest at Armenian reading comprehension, text generation and correction. Factual knowledge, complex reasoning and instruction following are where we see the most room to grow.</p>
+
+            <h3 id="ifeval">Armenian IFEval</h3>
+            <p>On Armenian IFEval, Ayb 9B scores <strong>0.729 (#16)</strong>. That result comes with thinking <em>completely disabled</em>: Ayb has had no dedicated reasoning training yet, while almost every model around it on the leaderboard was run with some reasoning effort. Even so, it edges out its Qwen3.5 9B base running with thinking on.</p>
+            <figure class="figure">
+                <img src="/assets/blog/ayb-ifeval-top20.webp" alt="Armenian IFEval top 20 with reasoning setting. 1 GPT-5.6 Sol (high) 0.863; 2 DeepSeek-V4.1-Flash (low) 0.862; 3 Qwen3.8-Flash-Next (medium) 0.851; 4 Qwen3.8-Flash-Next (low) 0.845; 5 Qwen3.8-27B (xhigh) 0.840; 6 Gemini 3.7 Flash (high) 0.834; 6 GPT-5.6 Luna (high) 0.834; 8 DeepSeek-V4-Pro (low) 0.826; 9 Claude Opus 5 (high) 0.825; 10 Gemma 4 31B (on) 0.809; 11 Gemma 4 26B A4B (on) 0.776; 12 Qwen3.8-27B (low) 0.751; 13 Gemma 4 31B (off) 0.750; 14 Qwen3.8-27B (medium) 0.748; 15 Qwen3.6-35B-A3B (xhigh) 0.731; 16 Ayb 0.5 9B (off) 0.729; 17 Qwen3.6-35B-A3B (high) 0.726; 18 Qwen3.5-9B (on) 0.724; 19 Qwen3.6-35B-A3B (low) 0.721; 20 GLM-5.3 (high) 0.712." width="1460" height="1038" loading="lazy">
+                <figcaption><b>Armenian IFEval, top 20</b>, with each model's reasoning setting. Ayb 9B is the only top-20 entry evaluated with thinking off apart from Gemma 4 31B.</figcaption>
+            </figure>
+
+            <h2 id="examples">Ayb in practice</h2>
+            <p>A few hand-picked conversations with Ayb 9B. English translations are ours.</p>
+
+            <h3>Answering from a source</h3>
+            <p>Ayb pulls the relevant facts out of Armenian text and follows instructions on how to present them.</p>
+            <div class="chat">
+                <div class="msg user"><span class="who">User</span>
+                    <p lang="hy">Ըստ հայտարարության՝ ո՞վ կարող է դիմել, և մինչև ե՞րբ։ Պատասխանիր երկու կետով։</p>
+                    <p lang="hy" class="quote">Ծրագրին կարող են դիմել Շիրակի մարզում բնակվող 18–25 տարեկան երիտասարդները։ Հայտերն ընդունվում են մինչև դեկտեմբերի 5-ը։ Հարցազրույցների օրերը կհայտարարվեն ավելի ուշ։</p>
+                    <p class="en">According to the announcement, who can apply, and by when? Answer in two points. “Young people aged 18–25 living in Shirak province can apply. Applications are accepted until December 5. Interview dates will be announced later.”</p>
+                </div>
+                <div class="msg bot"><span class="who">Ayb 9B</span>
+                    <ul lang="hy">
+                        <li>Շիրակի մարզում բնակվող 18–25 տարեկան երիտասարդները։</li>
+                        <li>Հայտերն ընդունվում են մինչև դեկտեմբերի 5-ը։</li>
+                    </ul>
+                    <p class="en">Young people aged 18–25 living in Shirak province. Applications are accepted until December 5.</p>
+                </div>
+            </div>
+
+            <h3>Careful with medical advice</h3>
+            <p>Ayb had no dedicated safety tuning, but it already shows safety-aware behavior, such as declining to prescribe medication.</p>
+            <div class="chat">
+                <div class="msg user"><span class="who">User</span>
+                    <p lang="hy">Արդեն մի քանի օր է՝ գլխացավ ունեմ։ Ասա՝ կոնկրետ ի՞նչ դեղ խմեմ և ի՞նչ չափաբաժնով։</p>
+                    <p class="en">I've had a headache for a few days. Tell me exactly which medicine to take, and in what dose.</p>
+                </div>
+                <div class="msg bot"><span class="who">Ayb 9B</span>
+                    <p lang="hy">Ես չեմ կարող տրամադրել բժշկական խորհրդատվություն, քանի որ մասնագետ չեմ։ Խնդրում եմ դիմել բժշկի՝ ճիշտ ախտորոշման և բուժման համար։</p>
+                    <p class="en">I can't give medical advice, as I'm not a specialist. Please see a doctor for a proper diagnosis and treatment.</p>
+                </div>
+            </div>
+
+            <h3>Armenian in Latin letters</h3>
+            <p>Many Armenians type in Latin script. Ayb is starting to understand it, even though we never trained for it specifically.</p>
+            <div class="chat">
+                <div class="msg user"><span class="who">User</span>
+                    <p>ov e hayastani naxagahy</p>
+                    <p class="en">who is the president of Armenia</p>
+                </div>
+                <div class="msg bot"><span class="who">Ayb 9B</span>
+                    <p lang="hy">Հայաստանի Հանրապետության նախագահը Վահագն Խաչատուրյանն է։ Նա ընտրվել է 2022 թվականին։</p>
+                    <p class="en">The President of the Republic of Armenia is Vahagn Khachaturyan. He was elected in 2022.</p>
+                </div>
+            </div>
+
+            <h2 id="vision">Vision</h2>
+            <p>Ayb keeps Qwen3.5's full vision-language architecture. We adapted only the language model, training it on Armenian and English text, and left the vision encoder and the vision-to-language projector unchanged. That keeps the base model's visual skills while letting Ayb <strong>describe images, answer questions about visual details and follow image-based instructions in Armenian</strong>.</p>
+            <div class="chat">
+                <div class="msg user"><span class="who">User</span>
+                    <img src="/assets/blog/ayb-vision-example.webp" alt="Night skyline of Midtown Manhattan across the Hudson River, with the Empire State Building on the right and the Chrysler Building on the left." width="1200" height="800" loading="lazy">
+                    <p lang="hy">Որտե՞ղ է սա։</p>
+                    <p class="en">Where is this?</p>
+                </div>
+                <div class="msg bot"><span class="who">Ayb 9B</span>
+                    <p lang="hy">Սա Նյու Յորքի քաղաքային համայնապատկերն է՝ Մանհեթենի երկնաքերերը Հուդզոն գետի վրա։ Ամենաաջ բարձր շենքը Էմփայր Սթեյթ Բիլդինգն է, իսկ ձախ կողմում՝ Քրայսլեր Բիլդինգը։</p>
+                    <p class="en">This is the New York City skyline: Manhattan's skyscrapers on the Hudson River. The tall building on the far right is the Empire State Building, and on the left is the Chrysler Building.</p>
+                </div>
+            </div>
+
+            <h2 id="limitations">Limitations</h2>
+            <ul>
+                <li>Trained mostly on Eastern Armenian. Western Armenian, regional dialects and Armenian in Latin script are less reliable.</li>
+                <li>Like any LLM, Ayb can state incorrect details, and its coverage of recent events is uneven.</li>
+                <li>Multi-step reasoning in thinking mode is still limited. All reported results use thinking disabled.</li>
+                <li>Preference tuning is still early, especially when several answers are correct but differ in clarity or usefulness.</li>
+            </ul>
 
             <div class="callout red" style="margin-top:2em"><b>Better together.</b> Put <a href="/blog/ohanasr">OhanASR</a> in front of Ayb and <a href="/blog/ohantts">OhanTTS</a> behind it, and you have an open, end-to-end Armenian voice assistant.</div>
 
@@ -137,10 +222,12 @@
             <ul class="link-list">
                 <li><a href="https://huggingface.co/collections/Metric-AI/ayb-05" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-cube"></i></span><span class="ll-text"><b>Ayb v0.5 collection</b><small>0.8B, 4B and 9B</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
                 <li><a href="https://metric-ai-armbench-llm.hf.space/" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-ranking-star"></i></span><span class="ll-text"><b>ArmBench-LLM</b><small>The open leaderboard for Armenian LLMs</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="https://huggingface.co/blog/Metric-AI/ayb-05-intro" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-book-open"></i></span><span class="ll-text"><b>Technical write-up</b><small>The Ayb v0.5 post on Hugging Face</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
 
             <h2 id="next">What's next</h2>
-            <p>Ayb v0.5 is the first step. Next we're working on stronger reasoning, longer context, more capable vision, and better handling of Western Armenian and dialects. We'll share the research behind each release on this blog.</p>
+            <p>Ayb v0.5 is the first step. Next we're working on stronger multi-step reasoning, with Armenian-specific training and evaluation in thinking mode; better preference tuning, built on Armenian response comparisons that reward accuracy, clarity and following instructions; better support for Western Armenian and other variants; and broader evaluation on real-world applications.</p>
+            <p class="figcaption" style="margin-top:2.5em">We acknowledge the EuroHPC Joint Undertaking for awarding this project access to the EuroHPC supercomputer LUMI, hosted by CSC (Finland) and the LUMI consortium. Ayb 4B and Ayb 0.8B were trained entirely on LUMI.</p>
         </article>
     </div>
 </main>

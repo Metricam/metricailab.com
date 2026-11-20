@@ -245,6 +245,21 @@ figcaption b { color: var(--ink); }
 .demo > * + * { margin-top: 12px; }
 @media (max-width: 680px) { .pair-grid { grid-template-columns: 1fr; } }
 
+/* Chat examples (user ↔ model), Armenian text with English gloss */
+.chat { display: flex; flex-direction: column; gap: 10px; background: var(--cream); border: 1px solid var(--line); border-radius: 22px; padding: 18px; margin: 1.2em 0 1.6em; }
+.chat .msg { max-width: 88%; border-radius: 18px; padding: 12px 16px; font-size: 15.5px; line-height: 1.65; }
+.chat .msg.user { align-self: flex-end; background: var(--navy); color: #fff; border-bottom-right-radius: 6px; }
+.chat .msg.bot { align-self: flex-start; background: #fff; border: 1px solid var(--line); color: var(--ink); border-bottom-left-radius: 6px; }
+.chat .who { display: block; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; opacity: .6; margin-bottom: 4px; }
+.chat .msg p, .chat .msg ul { margin: 0; }
+.chat .msg p + p, .chat .msg p + ul, .chat .msg ul + p { margin-top: 8px; }
+.chat .msg ul { padding-left: 1.2em; }
+.chat .msg .quote { border-left: 2px solid rgba(255,255,255,.35); padding-left: 10px; }
+.chat .msg .en { font-family: 'Inter', sans-serif; font-size: 13.5px; font-style: italic; line-height: 1.55; color: var(--muted); }
+.chat .msg.user .en { color: rgba(255,255,255,.7); }
+.chat .msg img { border-radius: 12px; margin-bottom: 10px; }
+@media (max-width: 680px) { .chat .msg { max-width: 100%; } }
+
 /* Announcement page: hero followed by a row of model cards */
 .announce { padding: 8px 0 96px; }
 .announce-grid { grid-template-columns: repeat(3, 1fr); }
