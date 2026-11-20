@@ -17,6 +17,14 @@ Key facts:
 
 - [Research](https://metricailab.com/research): Physical AI (JEPA world models, intuitive physics, robotic failure detection, benchmark science), low-resource language AI (Armenian text embeddings ATE-1/ATE-2, ArmBench benchmarks, EACL 2026 publication), and Document AI (ColQwen visual document retrieval, #1 on ViDoRe).
 
+## Blog
+
+- [Blog](https://metricailab.com/blog/): Model releases, research, benchmarks and articles.
+- [Open speech and language models for Armenian](https://metricailab.com/blog/open-armenian-speech-and-language-models): Announcement of OhanASR, OhanTTS and Ayb (Nov 2026).
+- [OhanASR v0.1](https://metricailab.com/blog/ohanasr): State-of-the-art open Armenian speech recognition (batch + streaming); #1 by CER on ArmBench-ASR among open and closed models.
+- [OhanTTS v0.1](https://metricailab.com/blog/ohantts): Streaming Armenian-focused text-to-speech with voice cloning (8 languages, ~330 ms to first audio).
+- [Ayb v0.5](https://metricailab.com/blog/ayb): Open Armenian LLM (0.8B, 4B, 9B) and first step towards sovereign Armenian AI; Ayb 9B is the state-of-the-art open model for Armenian, competitive with Gemini, GPT and Claude on Armenian tasks; trained end to end (pretraining, SFT, DPO, GRPO) with an Armenian-efficient tokenizer; early vision.
+
 ## Work
 
 - [Portfolio](https://metricailab.com/portfolio): Selected projects — real-time multilingual voice agents for banking and telecom, industrial defect detection, traffic intelligence, legal AI assistants, text-to-SQL analytics, digital pathology, churn prediction, demand forecasting.

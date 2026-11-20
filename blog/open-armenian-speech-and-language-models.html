@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open speech and language models for Armenian: OhanASR, OhanTTS and Ayb • Metric AI Lab</title>
+    <meta name="description" content="Metric AI Lab releases three open model families for Armenian: OhanASR (speech recognition, batch and streaming), OhanTTS (speech generation) and Ayb (a large language model with vision).">
+    <link rel="canonical" href="https://metricailab.com/blog/open-armenian-speech-and-language-models">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Open speech and language models for Armenian: OhanASR, OhanTTS and Ayb">
+    <meta property="og:description" content="Metric AI Lab releases three open model families for Armenian: OhanASR (speech recognition, batch and streaming), OhanTTS (speech generation) and Ayb (a large language model with vision).">
+    <meta property="og:url" content="https://metricailab.com/blog/open-armenian-speech-and-language-models">
+    <meta property="og:image" content="https://metricailab.com/assets/blog/open-armenian-models.webp">
+    <meta property="article:published_time" content="2026-11-20">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://metricailab.com/assets/blog/open-armenian-models.webp">
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Open speech and language models for Armenian: OhanASR, OhanTTS and Ayb", "datePublished": "2026-11-20", "image": "https://metricailab.com/assets/blog/open-armenian-models.webp", "url": "https://metricailab.com/blog/open-armenian-speech-and-language-models", "author": {"@type": "Organization", "name": "Metric AI Lab", "url": "https://metricailab.com"}, "publisher": {"@type": "Organization", "name": "Metric AI Lab", "logo": {"@type": "ImageObject", "url": "https://metricailab.com/favicon.png"}}, "keywords": ["Armenian AI", "OhanASR", "OhanTTS", "Ayb", "AybLLM", "Armenian LLM", "Armenian speech recognition", "Armenian text-to-speech"]}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/assets/blog/blog.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><img src="/logo.svg" alt="" width="36" height="36" class="logo-icon"><span class="logo-text">Metric AI Lab</span></a>
+        <div class="nav-links">
+            <a href="/applied-ai">Applied AI</a>
+            <a href="/research">Research</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/blog/" class="active">Blog</a>
+        </div>
+        <a href="/#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/applied-ai">Applied AI</a>
+    <a href="/research">Research</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#contact" class="mobile-cta">Get In Touch</a>
+</div>
+
+<header class="post-hero grid-bg no-banner">
+    <div class="container">
+        <div class="post-meta fu"><time datetime="2026-11-20">November 20, 2026</time><span class="tag tag-model">Model</span></div>
+        <h1 class="fu2">Open speech and language models for Armenian</h1>
+        <p class="dek fu3">State-of-the-art open models that hear, speak and understand Armenian — the building blocks of sovereign Armenian AI.</p>
+    </div>
+</header>
+
+
+<main class="announce">
+    <div class="container">
+        <div class="post-grid announce-grid">
+            <a href="/blog/ohanasr" class="post-card">
+                <div class="thumb"><img src="/assets/blog/open-armenian-models.webp" alt="OhanASR v0.1" width="1672" height="941"></div>
+                <div class="body">
+                    <div class="post-meta"><span class="tag tag-model">Speech recognition</span></div>
+                    <h3>OhanASR v0.1</h3>
+                    <p>SOTA open Armenian speech-to-text: #1 by character error rate on ArmBench-ASR among all open and closed models, plus a streaming variant for live transcription.</p>
+                    <div class="kv"><span>3.49% CER</span><span>Non-streaming</span><span>Streaming</span></div>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+            <a href="/blog/ohantts" class="post-card">
+                <div class="thumb"><img src="/assets/blog/ohantts-v0.1.webp" alt="OhanTTS v0.1" width="1672" height="941"></div>
+                <div class="body">
+                    <div class="post-meta"><span class="tag tag-model">Speech generation</span></div>
+                    <h3>OhanTTS v0.1</h3>
+                    <p>Streaming Armenian text-to-speech with voice cloning from a few seconds of audio — first sound in ~330 ms, eight languages.</p>
+                    <div class="kv"><span>Streaming</span><span>Voice cloning</span><span>8 languages</span></div>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+            <a href="/blog/ayb" class="post-card">
+                <div class="thumb"><img src="/assets/blog/ayb-v0.5.webp" alt="Ayb v0.5" width="1672" height="941"></div>
+                <div class="body">
+                    <div class="post-meta"><span class="tag tag-model">Language + vision</span></div>
+                    <h3>Ayb v0.5</h3>
+                    <p>SOTA open Armenian LLM that rivals frontier models on Armenian tasks, trained end to end with an Armenian tokenizer and early vision.</p>
+                    <div class="kv"><span>+ Vision</span><span>0.8B</span><span>4B</span><span>9B</span></div>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px"><img src="/logo.svg" alt="" width="36" height="36" class="logo-icon"><span class="logo-text">Metric AI Lab</span></a>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
+            </div>
+            <div class="footer-links">
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="/applied-ai">Applied AI</a><a href="/research">Research</a><a href="/portfolio">Portfolio</a><a href="/blog/">Blog</a></div>
+                <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metricailab.com">info@metricailab.com</a></div>
+                <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank" rel="noopener">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank" rel="noopener">LinkedIn</a></div>
+            </div>
+            <div style="font-size:12px;color:#9ca3af;align-self:flex-end;white-space:nowrap">© 2026 Metric AI Lab</div>
+        </div>
+    </div>
+</footer>
+<script src="/assets/blog/blog.js"></script>
+</body>
+</html>

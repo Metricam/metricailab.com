@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing OhanASR v0.1 — Open Armenian Speech Recognition • Metric AI Lab</title>
+    <meta name="description" content="OhanASR v0.1 is the state-of-the-art open-source Armenian speech recognition model: 3.49% CER and 16.12% WER on ArmBench-ASR, #1 by CER among all open and closed models. Plus a streaming variant for real-time transcription.">
+    <link rel="canonical" href="https://metricailab.com/blog/ohanasr">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Introducing OhanASR v0.1 — Open Armenian Speech Recognition">
+    <meta property="og:description" content="State-of-the-art open Armenian ASR. #1 by CER on ArmBench-ASR among open and closed models, with a streaming variant for real-time use.">
+    <meta property="og:url" content="https://metricailab.com/blog/ohanasr">
+    <meta property="og:image" content="https://metricailab.com/assets/blog/ohanasr-v0.1.webp">
+    <meta property="article:published_time" content="2026-11-20">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://metricailab.com/assets/blog/ohanasr-v0.1.webp">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Introducing OhanASR v0.1 — Open Armenian Speech Recognition","datePublished":"2026-11-20","image":"https://metricailab.com/assets/blog/ohanasr-v0.1.webp","url":"https://metricailab.com/blog/ohanasr","author":{"@type":"Organization","name":"Metric AI Lab","url":"https://metricailab.com"},"publisher":{"@type":"Organization","name":"Metric AI Lab","logo":{"@type":"ImageObject","url":"https://metricailab.com/favicon.png"}},"keywords":["OhanASR","Armenian speech recognition","Armenian ASR","streaming ASR","ArmBench-ASR"]}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Armenian:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/assets/blog/blog.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><img src="/logo.svg" alt="" width="36" height="36" class="logo-icon"><span class="logo-text">Metric AI Lab</span></a>
+        <div class="nav-links">
+            <a href="/applied-ai">Applied AI</a>
+            <a href="/research">Research</a>
+            <a href="/portfolio">Portfolio</a>
+            <a href="/blog/" class="active">Blog</a>
+        </div>
+        <a href="/#contact" class="nav-cta">Get In Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+    <a href="/applied-ai">Applied AI</a>
+    <a href="/research">Research</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#contact" class="mobile-cta">Get In Touch</a>
+</div>
+
+<header class="post-hero grid-bg">
+    <div class="container">
+        <div class="post-meta fu"><time datetime="2026-11-20">November 20, 2026</time><span class="tag tag-model">Model</span></div>
+        <h1 class="fu2">Introducing OhanASR v0.1</h1>
+        <p class="dek fu3">State-of-the-art open speech recognition for Armenian — one model for recorded audio, one for live transcription.</p>
+        <div class="release-links fu4">
+            <a href="https://huggingface.co/collections/Metric-AI/ohanasr-v01" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-solid fa-download"></i> Models on Hugging Face</a>
+            <a href="https://metric-ai-armbench-asr.static.hf.space/index.html" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-solid fa-ranking-star"></i> ArmBench-ASR leaderboard</a>
+        </div>
+        <div class="hero-stats fu4">
+            <div class="hero-stat"><b>#1</b><span>CER, open &amp; closed</span></div>
+            <div class="hero-stat"><b>3.49%</b><span>Character error rate</span></div>
+            <div class="hero-stat"><b>16.12%</b><span>Word error rate</span></div>
+            <div class="hero-stat"><b>820 h</b><span>Armenian speech</span></div>
+        </div>
+    </div>
+    <div class="hero-banner fu4"><img src="/assets/blog/ohanasr-v0.1.webp" alt="OhanASR v0.1 — Open Armenian Speech Recognition, non-streaming and streaming" width="1672" height="941"></div>
+</header>
+
+<main class="post-wrap">
+    <div class="post-layout with-toc">
+        <aside class="toc" aria-label="On this page">
+            <div class="label">On this page</div>
+            <ol>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#models">Two models, one family</a></li>
+                <li><a href="#results">Results</a>
+                    <ol>
+                        <li><a href="#results-overall">Overall</a></li>
+                        <li><a href="#results-domain">By domain</a></li>
+                    </ol>
+                </li>
+                <li><a href="#demo">Hear it</a></li>
+                <li><a href="#limitations">Known limitations</a></li>
+                <li><a href="#availability">Get the models</a></li>
+                <li><a href="#next">What's next</a></li>
+            </ol>
+        </aside>
+
+        <article class="prose">
+            <h2 id="overview" style="margin-top:0">Overview</h2>
+            <p class="lede">Today we're releasing <strong>OhanASR</strong>, a family of open-weight speech recognition models for Armenian. The flagship, <strong>OhanASR-v0.1</strong>, is the strongest open Armenian ASR model available: on ArmBench-ASR it ranks <strong>first by character error rate</strong> and <strong>second by word error rate</strong> across every system we evaluated — open or closed.</p>
+            <p>The family is named after <em>Dzenov Ohan</em> — Ohan the Loud-Voiced — from the Armenian epic <em>Daredevils of Sassoun</em>, whose shout could be heard across the mountains. It felt right for models whose whole job is listening to Armenian.</p>
+            <p>Armenian is spoken by millions of people, yet it has long been an afterthought for speech technology: large multilingual systems treat it as one of a hundred languages, and the open options have lagged far behind commercial APIs. OhanASR closes that gap and puts a state-of-the-art model in everyone's hands.</p>
+
+            <h2 id="models">Two models, one family</h2>
+            <p>We start from a 2-billion-parameter multilingual speech model and fine-tune it on <strong>820 hours of Armenian speech</strong> spanning formal speech, everyday conversation and literary readings. From there the family splits in two:</p>
+            <ul>
+                <li><strong>OhanASR-v0.1</strong> — the accuracy-first model for recorded audio: interviews, lectures, podcasts, archives, call recordings.</li>
+                <li><strong>OhanASR-Streaming-v0.1</strong> — continued training on top of OhanASR-v0.1 so it can emit text incrementally as audio arrives. Built for live captions, voice agents and anything that can't wait for the speaker to finish.</li>
+            </ul>
+
+            <h2 id="results">Results</h2>
+            <p>We evaluate on <a href="https://metric-ai-armbench-asr.static.hf.space/index.html" target="_blank" rel="noopener">ArmBench-ASR</a>, our open benchmark for Armenian speech recognition. It pools five very different kinds of audio — crowd-sourced read speech (Common Voice 26), FLEURS, recited poetry, film dialogue and broadcast news — so a model can't win by being good at just one register.</p>
+
+            <h3 id="results-overall">Overall</h3>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Model</th><th>WER</th><th>CER</th><th>WER-norm</th><th>CER-norm</th><th>Rank (WER / CER)</th></tr></thead>
+                    <tbody>
+                        <tr class="hl"><td>OhanASR-v0.1</td><td>16.12%</td><td class="best">3.49%</td><td>6.96%</td><td>1.76%</td><td>2nd / <span class="best">1st</span></td></tr>
+                        <tr><td>OhanASR-Streaming-v0.1</td><td>19.07%</td><td>4.47%</td><td>8.57%</td><td>2.46%</td><td>10th / 9th</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="figcaption">Combined ArmBench-ASR scores; lower is better. Ranks are among all open and closed models on the leaderboard. "-norm" scores are computed after text normalization (punctuation, casing and orthographic variants), which better reflects how readable a transcript is.</p>
+            <p>The streaming model gives up about three points of WER in exchange for real-time output — a modest price, and it still places in the top ten overall, ahead of many systems that only work offline.</p>
+
+            <h3 id="results-domain">By domain</h3>
+            <p>Read speech and news are close to solved: on FLEURS, OhanASR-v0.1 gets fewer than one character in a hundred wrong after normalization. Poetry is harder on raw WER — mostly punctuation and archaic spellings, which normalization largely forgives. Film dialogue, with overlapping voices, music and slang, remains the real frontier.</p>
+
+            <figure class="figure">
+                <div class="bars" data-metrics="wer,cer" role="img" aria-label="Per-domain error rates for OhanASR-v0.1 and OhanASR-Streaming-v0.1 on ArmBench-ASR. Full values in the table below.">
+                    <div class="bars-head">
+                        <div>
+                            <div class="bars-title">Error rate by domain (lower is better)</div>
+                            <div class="legend" style="margin-top:6px"><span><i style="background:var(--series-a)"></i>OhanASR-v0.1</span><span><i style="background:var(--series-b)"></i>OhanASR-Streaming-v0.1</span></div>
+                        </div>
+                        <div class="seg-toggle" role="group" aria-label="Metric"><button data-metric="wer" aria-pressed="true">WER</button><button data-metric="cer" aria-pressed="false">CER</button></div>
+                    </div>
+                    <div class="bar-row"><div class="bar-label">Common Voice</div><div class="bar-pair">
+                        <div class="bar-line" data-series="OhanASR-v0.1" data-wer="9.62" data-cer="1.77"><div class="bar bar-a"></div><span class="bar-val"></span></div>
+                        <div class="bar-line" data-series="OhanASR-Streaming-v0.1" data-wer="11.91" data-cer="2.20"><div class="bar bar-b"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">FLEURS</div><div class="bar-pair">
+                        <div class="bar-line" data-series="OhanASR-v0.1" data-wer="10.78" data-cer="2.03"><div class="bar bar-a"></div><span class="bar-val"></span></div>
+                        <div class="bar-line" data-series="OhanASR-Streaming-v0.1" data-wer="13.30" data-cer="2.52"><div class="bar bar-b"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">News</div><div class="bar-pair">
+                        <div class="bar-line" data-series="OhanASR-v0.1" data-wer="15.33" data-cer="3.07"><div class="bar bar-a"></div><span class="bar-val"></span></div>
+                        <div class="bar-line" data-series="OhanASR-Streaming-v0.1" data-wer="18.02" data-cer="3.51"><div class="bar bar-b"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Poems</div><div class="bar-pair">
+                        <div class="bar-line" data-series="OhanASR-v0.1" data-wer="24.35" data-cer="5.29"><div class="bar bar-a"></div><span class="bar-val"></span></div>
+                        <div class="bar-line" data-series="OhanASR-Streaming-v0.1" data-wer="30.10" data-cer="6.90"><div class="bar bar-b"></div><span class="bar-val"></span></div></div></div>
+                    <div class="bar-row"><div class="bar-label">Movies</div><div class="bar-pair">
+                        <div class="bar-line" data-series="OhanASR-v0.1" data-wer="42.61" data-cer="15.10"><div class="bar bar-a"></div><span class="bar-val"></span></div>
+                        <div class="bar-line" data-series="OhanASR-Streaming-v0.1" data-wer="45.00" data-cer="20.44"><div class="bar bar-b"></div><span class="bar-val"></span></div></div></div>
+                </div>
+                <figcaption><b>Figure 1.</b> Raw (un-normalized) WER and CER per ArmBench-ASR domain. Use the WER / CER toggle to switch metrics.</figcaption>
+            </figure>
+
+            <div class="table-wrap" style="margin-top:1.6em">
+                <table class="data-table">
+                    <thead><tr><th>Domain</th><th>WER-norm</th><th>CER-norm</th><th>WER-LLM</th><th>CER-LLM</th></tr></thead>
+                    <tbody>
+                        <tr><td>Common Voice 26</td><td>6.28%</td><td>1.23%</td><td>4.73%</td><td>1.04%</td></tr>
+                        <tr><td>FLEURS</td><td>3.88%</td><td>0.93%</td><td>3.16%</td><td>0.82%</td></tr>
+                        <tr><td>News</td><td>4.08%</td><td>1.17%</td><td>2.95%</td><td>0.85%</td></tr>
+                        <tr><td>Poems</td><td>6.26%</td><td>1.44%</td><td>5.77%</td><td>1.33%</td></tr>
+                        <tr><td>Movies</td><td>20.21%</td><td>8.98%</td><td>21.47%</td><td>9.68%</td></tr>
+                        <tr class="hl"><td>Combined</td><td>6.96%</td><td>1.76%</td><td>6.04%</td><td>1.60%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="figcaption">OhanASR-v0.1, normalized and LLM-judged scores per domain. "-LLM" scores use a language model to normalize references and hypotheses before scoring, discounting differences a human reader wouldn't count as errors. Full per-domain numbers for both models are on the <a href="https://huggingface.co/collections/Metric-AI/ohanasr-v01" target="_blank" rel="noopener">model cards</a>.</p>
+
+            <h2 id="demo">Hear it</h2>
+            <p>A news-style clip — dense with brand names, numbers and foreign terms, exactly the kind of audio that trips up speech recognizers.</p>
+            <div class="demo">
+                <audio controls preload="metadata">
+                    <source src="/assets/ohanasr-01-demo-audio.wav" type="audio/wav">
+                    Your browser does not support audio playback.
+                </audio>
+                <blockquote class="transcript" lang="hy">
+                    <span class="label" lang="en">OhanASR-v0.1 transcript</span>
+                    NVIDIA OpenAIA AWS Mosilla Revolute և տասնյակ այլ միջազգային տեխնոլոգիական անուններ մեկ վայրում Երևանում։ Առաջիկայում դիջիթեք 2026-ը Հայաստանի մայրաքաղաքը կվերածի արհեստական բանականության տարածաշրջանային հանդիպման հարթակի՝ միավորելով տեխնոլոգիան, բիզնեսը և ներդրումային նոր հնարավորությունները։ Դիջիթեք 2026-ն այս տարի վերադառնում է արդեն նոր մասշտաբով՝ աշխարհի նոր ԱԲ հանգույցը խորագրով։ Միացյալ Նահանգներից, Եվրոպայից, արաբական ծոցի երկրներից և կենտրոնական Ասիայից Երևան կժամանեն ձեռներեցներ, ներդրողներ, տեխնոլոգիական ոլորտի առաջատար ընկերությունների և պետական կառույցների ներկայացուցիչներ։
+                </blockquote>
+            </div>
+            <p>And the streaming model in action — the subtitles below are OhanASR-Streaming-v0.1's live output, produced as the audio plays.</p>
+            <figure class="demo" style="margin-top:1em">
+                <video controls preload="metadata" playsinline>
+                    <source src="https://cdn-uploads.huggingface.co/production/uploads/65cf49796c48188b990b7b00/frvMHwHm3NRQ8VuaNjwU2.mp4" type="video/mp4">
+                </video>
+                <figcaption><b>Figure 2.</b> Real-time Armenian transcription with OhanASR-Streaming-v0.1.</figcaption>
+            </figure>
+
+            <h2 id="limitations">Known limitations</h2>
+            <p>This is a v0.1, and we'd rather you hear about the rough edges from us:</p>
+            <ul>
+                <li><strong>Formal vs. colloquial Armenian.</strong> The models sometimes mix registers — for example writing «ա» where the formal form is «է».</li>
+                <li><strong>Code-switching.</strong> Speech that mixes Armenian with English or Russian isn't always handled well; foreign words may come out transliterated into Armenian script.</li>
+                <li><strong>Unclear audio.</strong> In noisy or mumbled segments the models may drop words they can't resolve rather than guess.</li>
+            </ul>
+
+            <h2 id="availability">Get the models</h2>
+            <p>Both models are released under <strong>CC BY-NC 4.0</strong> — free for research, education and other non-commercial use. For commercial licensing or a custom deployment, <a href="/#contact">get in touch</a>.</p>
+            <ul class="link-list">
+                <li><a href="https://huggingface.co/collections/Metric-AI/ohanasr-v01" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-cube"></i></span><span class="ll-text"><b>OhanASR v0.1 collection</b><small>OhanASR-v0.1 for recorded speech · OhanASR-Streaming-v0.1 for real-time transcription</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="https://metric-ai-armbench-asr.static.hf.space/index.html" target="_blank" rel="noopener"><span class="ll-icon"><i class="fa-solid fa-ranking-star"></i></span><span class="ll-text"><b>ArmBench-ASR</b><small>The open leaderboard behind these numbers</small></span><i class="fa-solid fa-arrow-right"></i></a></li>
+            </ul>
+
+            <h2 id="next">What's next</h2>
+            <p>We're already training the next version, focused on three things: <strong>higher accuracy</strong> — especially on conversational and film audio — <strong>lower streaming latency</strong>, and <strong>robustness</strong> to noise, accents and code-switching. OhanASR is also one half of a voice stack: pair it with <a href="/blog/ohantts">OhanTTS</a> for speech generation and <a href="/blog/ayb">Ayb</a> for language understanding.</p>
+            <p>Try it, break it, and tell us what you find — feedback is how v0.2 gets better.</p>
+        </article>
+    </div>
+</main>
+
+<section class="related">
+    <div class="container">
+        <div class="section-head" style="margin-top:0"><h2>More from the lab</h2></div>
+        <div class="post-grid">
+            <a href="/blog/open-armenian-speech-and-language-models" class="post-card">
+                <div class="thumb"><img src="/assets/blog/open-armenian-models.webp" alt="OhanASR, OhanTTS and Ayb — open Armenian AI models" width="1672" height="941" loading="lazy"></div>
+                <div class="body">
+                    <div class="post-meta"><time datetime="2026-11-20">Nov 20, 2026</time><span class="tag tag-model">Model</span></div>
+                    <h3>Open speech and language models for Armenian</h3>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+            <a href="/blog/ohantts" class="post-card">
+                <div class="thumb"><img src="/assets/blog/ohantts-v0.1.webp" alt="OhanTTS v0.1" width="1672" height="941" loading="lazy"></div>
+                <div class="body">
+                    <div class="post-meta"><time datetime="2026-11-20">Nov 20, 2026</time><span class="tag tag-model">Model</span></div>
+                    <h3>Introducing OhanTTS v0.1</h3>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+            <a href="/blog/ayb" class="post-card">
+                <div class="thumb"><img src="/assets/blog/ayb-v0.5.webp" alt="Ayb v0.5" width="1672" height="941" loading="lazy"></div>
+                <div class="body">
+                    <div class="post-meta"><time datetime="2026-11-20">Nov 20, 2026</time><span class="tag tag-model">Model</span></div>
+                    <h3>Introducing Ayb v0.5</h3>
+                    <div class="card-foot"><span></span><span class="read-more">Read <i class="fa-solid fa-arrow-right"></i></span></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-bottom:14px"><img src="/logo.svg" alt="" width="36" height="36" class="logo-icon"><span class="logo-text">Metric AI Lab</span></a>
+                <p style="font-size:14px;color:#6b7280;line-height:1.6">Frontier Applied AI Research Lab</p>
+            </div>
+            <div class="footer-links">
+                <div class="fcol"><div class="fcol-title">Lab</div><a href="/applied-ai">Applied AI</a><a href="/research">Research</a><a href="/portfolio">Portfolio</a><a href="/blog/">Blog</a></div>
+                <div class="fcol"><div class="fcol-title">Contact</div><a href="mailto:info@metricailab.com">info@metricailab.com</a></div>
+                <div class="fcol"><div class="fcol-title">Open Science</div><a href="https://huggingface.co/Metric-AI" target="_blank" rel="noopener">Hugging Face</a><a href="https://am.linkedin.com/company/metric-ai-lab" target="_blank" rel="noopener">LinkedIn</a></div>
+            </div>
+            <div style="font-size:12px;color:#9ca3af;align-self:flex-end;white-space:nowrap">© 2026 Metric AI Lab</div>
+        </div>
+    </div>
+</footer>
+<script src="/assets/blog/blog.js"></script>
+</body>
+</html>
